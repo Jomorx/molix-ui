@@ -1,5 +1,5 @@
 ```vue
 <template>
-  <mo-button color="red">asd </mo-button>
+  <ml-button color="red">这是一个按钮</ml-button>
 </template>
 ```
