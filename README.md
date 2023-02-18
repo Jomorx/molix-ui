@@ -1,5 +1,5 @@
 <div align='center'>
-	<img src="./docs/assets/Molix_logo.png" alt="LOGO" style="zoom:33%;" />
+	<img src="./docs/assets/Molix_logo.png" alt="LOGO" style="width:180px" />
 	<h1 style='text-align:center'>MOLIX</h1>
     <div>轻量组件库 for Vue3</div>
 	<p>
