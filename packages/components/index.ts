@@ -1,5 +1,5 @@
 import type { App } from "vue";
-import { Button } from "./Button";
+import { Button } from "./MlButton";
 export { Button };
 export default {
   install(app: App) {
