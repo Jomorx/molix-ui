@@ -8,7 +8,7 @@
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
         "format": "prettier --write .",
-        "lint": "eslint ."
+        "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix"
     },
     "dependencies": {
         "vue": "^3.2.45"
