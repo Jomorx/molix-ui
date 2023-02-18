@@ -26,14 +26,14 @@ module.exports = {
 	],
 
 	scopes: [
-		{ name: "jomorx" },
+		{ name: "Jomorx" },
 		// { name: "admin" },
 		// { name: "exampleScope" },
 		// { name: "changeMe" },
 	],
 
 	allowTicketNumber: false,
-	isTicketNumberRequired: false,    
+	isTicketNumberRequired: false,
 	ticketNumberPrefix: "TICKET-",
 	ticketNumberRegExp: "\\d{1,5}",
 
