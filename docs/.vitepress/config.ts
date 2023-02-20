@@ -8,6 +8,12 @@ const sidebar = {
             collapsed: false,
             items: [{ text: "Button 按钮", link: "/components/button/" }],
         },
+        {
+            text: "表单项",
+            collapsible: true,
+            collapsed: false,
+            items: [{ text: "Input 输入框", link: "/components/input/" }],
+        },
         { text: "导航" },
         { text: "反馈" },
         { text: "数据录入" },
