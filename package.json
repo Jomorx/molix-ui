@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "docs": "pnpm --filter @molix/docs docs",
         "prepare": "husky install",
-        "commit": "git-cz",
+        "commit": "git add . && git-cz",
         "build": "vue-tsc && vite build",
         "format": "prettier --write .",
         "lint": "eslint --ext .js,.vue,.ts ."
