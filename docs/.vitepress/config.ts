@@ -1,6 +1,7 @@
 const sidebar = {
     "/": [
         { text: "介绍", link: "/" },
+        { text: "快速上手", link: "/get-start" },
         {
             text: "通用",
             collapsible: true,
@@ -25,8 +26,8 @@ const editLink = {
     text: "Suggest changes to this page",
 };
 const config = {
-    base: "/zs-design-ui/temp/",
-    title: "🔨  zs-design-ui",
+    base: "/molix-ui",
+    title: "molix-ui",
     description: "组件库搭建的教学模型",
     lastUpdated: true,
     themeConfig: {
