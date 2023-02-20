@@ -10,3 +10,4 @@ src/index.ts
 dist
 demo
 *.d.ts
+commitlint.config.js

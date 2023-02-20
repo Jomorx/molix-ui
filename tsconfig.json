@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "strict": true,
+        "jsx": "preserve",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "lib": ["ESNext", "DOM"],
+        "skipLibCheck": true,
+        "noEmit": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["packages/*"]
+        }
+    },
+    "include": [
+        "examples/**/*.ts",
+        "examples/**/*.tsx",
+        "examples/**/*.vue",
+        "packages/**/*.ts",
+        "packages/**/**/*.ts",
+        "packages/**/**/**/*.ts",
+        "packages/**/*.tsx",
+        "packages/**/*.vue",
+        "typings/**/*.ts",
+        "tests/**/*.ts",
+        "tests/**/*.tsx",
+        "packages/**/**/**/_test_/*.spec.ts"
+    ]
+}
