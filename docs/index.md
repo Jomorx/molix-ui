@@ -11,10 +11,10 @@ hero:
     actions:
         - theme: brand
           text: 起步
-          link: /guide/
+          link: get-start
         - theme: alt
           text: View on github
-          link: https://github.com/message163/molix-ui
+          link: https://github.com/molix-ui/Molix
 
 features:
     - icon: 💡
