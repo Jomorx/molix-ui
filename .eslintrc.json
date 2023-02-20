@@ -43,6 +43,8 @@
         "vue/v-on-event-hyphenation": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "no-console": "off",
+        "new-cap": "off",
+        "no-undef": "off",
         // "@typescript-eslint/no-unused-vars": [
         // 	"error",
         // 	{

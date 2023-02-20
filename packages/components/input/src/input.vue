@@ -2,6 +2,10 @@
     <div></div>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup>
+defineOptions({
+    name: "ElButton",
+});
+</script>
 
 <style scoped></style>

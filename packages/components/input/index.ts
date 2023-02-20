@@ -1,8 +1,8 @@
-import Button from "./src/input.vue";
+import Input from "./src/input.vue";
 import { App } from "vue";
-export { Button };
+export { Input };
 export default {
     install(app: App) {
-        app.component(Button.name, Button);
+        app.component(Input.name, Input);
     },
 };
