@@ -1,4 +1,4 @@
-            /**
+/**
  * Colors
  * -------------------------------------------------------------------------- */
 
@@ -10,13 +10,13 @@
     --vp-c-brand-dark: #6ff1f1;
     --vp-c-brand-darker: #6ff1f1;
     --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
-  }
-  
-  /**
+}
+
+/**
    * Component: Button
    * -------------------------------------------------------------------------- */
-  
-  :root {
+
+:root {
     --vp-button-brand-border: var(--vp-c-brand-light);
     --vp-button-brand-text: var(--vp-c-white);
     --vp-button-brand-bg: var(--vp-c-brand);
@@ -26,74 +26,66 @@
     --vp-button-brand-active-border: var(--vp-c-brand-light);
     --vp-button-brand-active-text: var(--vp-c-white);
     --vp-button-brand-active-bg: var(--vp-button-brand-bg);
-  }
-  
-  /**
+}
+
+/**
    * Component: Home
    * -------------------------------------------------------------------------- */
-  
-  :root {
+
+:root {
     --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(
-      #6ff1f1,
-      #3889c9 30%,
-      #41d1ff
-    );
-  
-    --vp-home-hero-image-background-image: linear-gradient(
-      -45deg,
-      #6ff1f1 10%,
-      #3889c9 10%
-    );
+    --vp-home-hero-name-background: -webkit-linear-gradient(#6ff1f1, #3889c9 30%, #41d1ff);
+
+    --vp-home-hero-image-background-image: linear-gradient(-45deg, #6ff1f1 10%, #3889c9 10%);
     --vp-home-hero-image-filter: blur(40px);
-  }
-  
-  @media (min-width: 640px) {
+}
+
+@media (min-width: 640px) {
     :root {
-      --vp-home-hero-image-filter: blur(56px);
+        --vp-home-hero-image-filter: blur(56px);
     }
-  }
-  
-  @media (min-width: 960px) {
+}
+
+@media (min-width: 960px) {
     :root {
-      --vp-home-hero-image-filter: blur(72px);
+        --vp-home-hero-image-filter: blur(72px);
     }
-  }
-  
-  /**
+}
+
+/**
    * Component: Custom Block
    * -------------------------------------------------------------------------- */
-  
-  :root {
+
+:root {
     --vp-custom-block-tip-border: var(--vp-c-brand);
     --vp-custom-block-tip-text: var(--vp-c-brand-darker);
     --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
-  }
-  
-  .dark {
+}
+
+.dark {
     --vp-custom-block-tip-border: var(--vp-c-brand);
     --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
     --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
-  }
-  
-  /**
+}
+
+/**
    * Component: Algolia
    * -------------------------------------------------------------------------- */
-  
-  .DocSearch {
+
+.DocSearch {
     --docsearch-primary-color: var(--vp-c-brand) !important;
-  }
-  
-  /**
+}
+
+/**
    * VitePress: Custom fix
    * -------------------------------------------------------------------------- */
-  
-  /*
+
+/*
     Use lighter colors for links in dark mode for a11y.
     Also specify some classes twice to have higher specificity
     over scoped class data attribute.
   */
-  /* .dark .vp-doc a,
+/* .dark .vp-doc a,
   .dark .vp-doc a > code,
   .dark .VPNavBarMenuLink.VPNavBarMenuLink:hover,
   .dark .VPNavBarMenuLink.VPNavBarMenuLink.active,
@@ -111,6 +103,6 @@
   }
   
   /* Transition by color instead of opacity */
-  /* .dark .vp-doc .custom-block a {
+/* .dark .vp-doc .custom-block a {
     transition: color 0.25s;
-  } */      
+  } */
