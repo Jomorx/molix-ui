@@ -12,21 +12,17 @@
         "lib": ["ESNext", "DOM"],
         "skipLibCheck": true,
         "noEmit": true,
-        "baseUrl": ".",
+        "baseUrl": "./",
         "paths": {
-            "@/*": ["packages/*"]
+            "@molix/*": ["packages/*"]
         },
-        "types": ["unplugin-vue-define-options/macros-global"]
+        "types": []
     },
     "include": [
         "examples/**/*.ts",
         "examples/**/*.tsx",
         "examples/**/*.vue",
-        "packages/**/*.ts",
-        "packages/**/**/*.ts",
-        "packages/**/**/**/*.ts",
-        "packages/**/*.tsx",
-        "packages/**/*.vue",
+        "packages/**/*",
         "packages/**/**/**/*.vue",
         "typings/**/*.ts",
         "tests/**/*.ts",

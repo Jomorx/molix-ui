@@ -3,9 +3,9 @@
   "browserHash": "d9c79e9e",
   "optimized": {
     "vue": {
-      "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "0b08b91c",
+      "fileHash": "52dce845",
       "needsInterop": false
     }
   },
