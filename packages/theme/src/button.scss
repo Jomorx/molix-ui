@@ -1,15 +1,20 @@
+@use "sass:map";
+
 @import "./common/var.scss";
-// 基础样式
 .btn {
-    text-transform: uppercase;
-    font-size: 14px;
-    width: 81px;
-    height: 34px;
-    line-height: 20px;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
     position: relative;
+    overflow: visible;
+}
+// 基础样式
+.content {
+    border-radius: inherit;
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    padding: 3px 6px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
     overflow: hidden;
     background-color: transparent;
     transition: 0.3s;
@@ -34,8 +39,16 @@
     }
     &:hover::after,
     &:hover::before {
-        top: 0px;
+        top: 0px !important;
     }
+}
+.button-wave {
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    animation-iteration-count: 1;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1), cubic-bezier(0, 0, 0.2, 1);
 }
 
 //type相关
@@ -48,8 +61,32 @@
             background-color: $color;
         }
     }
+    .#{$type}-button-wave-active {
+        animation-name: #{$type}-button-wave, #{$type}-button-wave-opacity;
+    }
+    @keyframes #{$type}-button-wave {
+        from {
+            box-shadow: 0 0 0.5px 0 $color;
+        }
+        to {
+            // don't use exact 5px since chrome will display the animation with glitches
+            box-shadow: 0 0 0.5px 4.5px $color;
+        }
+    }
+
+    @keyframes #{$type}-button-wave-opacity {
+        from {
+            opacity: $color;
+        }
+        to {
+            opacity: 0;
+        }
+    }
 }
 // round相关
 .round {
     border-radius: 10px;
+}
+.disabled {
+    cursor: not-allowed;
 }
