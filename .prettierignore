@@ -9,3 +9,7 @@ components.d.ts
 
 /public/*
 commitlint.config.js
+package.json
+pnpm-lock.yaml
+vue.js
+_metadata.json

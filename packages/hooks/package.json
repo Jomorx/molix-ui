@@ -1,0 +1,14 @@
+{
+    "name": "@molix/hooks",
+    "version": "1.0.0",
+    "private": "true",
+    "description": "",
+    "main": "index.ts",
+    "module": "index.ts",
+    "types": "index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "MIT"
+}
