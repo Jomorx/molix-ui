@@ -1,4 +1,4 @@
-import Button from "./MlButton.vue";
+import Button from "./src/button.vue";
 import { App } from "vue";
 export { Button };
 export default {
