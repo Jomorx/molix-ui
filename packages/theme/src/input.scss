@@ -1,13 +1,10 @@
 @use "sass:map";
 
 @use "./mixin/config.scss" as *;
+@use "./common/var.scss" as *;
 
 $input-height: 30px;
 $input-width: 30px;
-$input-border: (
-    "white": #ffffff,
-    "base": #000000,
-);
 
 $input-radius: (
     "circle": 100%,
@@ -16,7 +13,8 @@ $input-radius: (
     "small": 2px,
 );
 
-.#{$namespace}-input {
+.#{$namespace}-input#{$element-separator}inner {
+    position: relative;
     width: 100%;
     height: $input-height;
     display: $input-width;
@@ -26,6 +24,25 @@ $input-radius: (
     padding: 1px 11px;
     background-image: none;
     transform: translateZ(0);
-    border: 1px solid map-get($input-border, "base");
+    border: 1px solid map-get($borderColor, "light");
     border-radius: map-get($input-radius, "base");
+    box-shadow: 0 0 0 0.5px map-get($borderColor, "light") inset;
+    transition: all 0.1s linear;
+    &:hover {
+        border: 1px solid map-get($borderColor, "darker");
+    }
+    &:focus {
+        border: 1px solid map-get($types, "primary");
+    }
+}
+
+.#{$namespace}-input#{$element-separator}wrapper {
+    border-radius: map-get($input-radius, "base");
+}
+// input禁用
+.is-disabled {
+    position: relative;
+    z-index: 999;
+    background-color: map-get($borderColor, "light");
+    cursor: not-allowed;
 }

@@ -1,19 +1,23 @@
 <template>
     <div>
-        <input
-            ref="input"
-            :class="nsInput.b()"
-            type="text"
-            :disabled="disabled"
-            :placeholder="placeholder"
-            @input="handleInput"
-            @change="handleChange"
-        />
+        <div :class="wrapperCls">
+            <input
+                ref="input"
+                :class="nsInput.element('inner')"
+                type="text"
+                :disabled="disabled"
+                :placeholder="placeholder"
+                @input="handleInput"
+                @change="handleChange"
+                @focus="handleFocus"
+                @blur="handleBlur"
+            />
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { watch } from "vue";
+import { computed, ref, watch } from "vue";
 
 import { useNamespace } from "@molix/hooks";
 
@@ -22,13 +26,21 @@ import type { TargetElement } from "./input";
 const props = withDefaults(defineProps<IInputProps>(), {
     modelValue: "",
     type: "text",
-    inputDisabled: false,
+    disabled: false,
     placeholder: "",
 });
 const emit = defineEmits<IInputEmits>();
 
 // 构造css命名空间
 const nsInput = useNamespace("input");
+
+const wrapperCls = computed(() => [
+    nsInput.element("wrapper"),
+    nsInput.is("disabled", props.disabled),
+]);
+
+const focused = ref(false);
+const hovering = ref(false);
 
 const handleInput = (event: Event) => {
     let { value } = event.target as TargetElement;
@@ -38,7 +50,16 @@ const handleInput = (event: Event) => {
 
 const handleChange = (event: Event) => {
     emit("change", (event.target as TargetElement).value);
-    console.log("a");
+};
+
+const handleFocus = (event: FocusEvent) => {
+    focused.value = true;
+    emit("focus", event);
+};
+
+const handleBlur = (event: FocusEvent) => {
+    focused.value = false;
+    emit("blur", event);
 };
 
 // watch(() => {});
