@@ -1,9 +1,10 @@
 <script lang="ts">
 interface IButtonProps {
     //按钮类型
-    type?: "primary" | "error" | "info" | "success";
+    type?: "primary" | "error" | "info" | "success" | "text";
     disabled?: true | false;
     round?: true | false;
+    fall?: true | false;
 }
 interface IButtonEmits {
     (e: "click", event: MouseEvent): any;
@@ -14,13 +15,18 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-
+import { useNamespace } from "@molix/hooks";
+import { ref, computed } from "vue";
+const NSbutton = useNamespace("button");
+const wrapperCls = computed(() => [
+    // NSbutton.element
+]);
 const isWaveActive = ref(false);
 const props = withDefaults(defineProps<IButtonProps>(), {
     type: "primary",
     disabled: false,
     round: false,
+    fall: false,
 });
 const emit = defineEmits<IButtonEmits>();
 const handleClick = (e: MouseEvent) => {
@@ -35,11 +41,16 @@ const handleClick = (e: MouseEvent) => {
 <template>
     <button @click="handleClick" class="btn" :class="{ round, disabled }" :disabled="disabled">
         <div
+            v-if="type !== 'text'"
             :class="{
+                fall,
                 content: true,
                 [type]: true,
             }"
         >
+            <slot />
+        </div>
+        <div v-else :class="{ [type]: true, content: true }">
             <slot />
         </div>
         <div :class="{ 'button-wave': true, [`${type}-button-wave-active`]: isWaveActive }"></div>
