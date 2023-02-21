@@ -1,10 +1,21 @@
 export const defaultNamespace = "ml";
 const statePrefix = "is-";
-export const useNamespace = (block: string) => {
-    // 生成字符串形如 ml-${block}-${blockSuffix}
-    const b = (blockSuffix = "") => _bem(defaultNamespace, block, blockSuffix, "", "");
+export const useNamespace = (blockName: string) => {
+    // 生成字符串形如 ml-${block}
+    const block = (blockSuffix = "") => _bem(defaultNamespace, blockName, blockSuffix, "", "");
+    const element = (el?: string) => (el ? _bem(defaultNamespace, blockName, "", el, "") : "");
+    const is: {
+        (name: string, state: boolean | undefined): string;
+        (name: string): string;
+    } = (name: string, ...args: [boolean | undefined] | []) => {
+        const state = args.length >= 1 ? args[0]! : true;
+        console.log(name, state);
+        return name && state ? `${statePrefix}${name}` : "";
+    };
     return {
-        b,
+        block,
+        element,
+        is,
     };
 };
 const _bem = (

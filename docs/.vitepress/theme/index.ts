@@ -1,19 +1,16 @@
 import DefaultTheme from "vitepress/theme";
-// import Button from '../../../src/button'
+
 import MolixUi from "@molix/components";
 import "./styles/vars.css";
-// 主题样式
-// import 'vitepress-theme-demoblock/dist/theme/styles/index.css'
-// 插件的组件，主要是demo组件
-// import Demo from 'vitepress-theme-demoblock/dist/client/components/Demo.vue'
-// import DemoBlock from 'vitepress-theme-demoblock/dist/client/components/DemoBlock.vue'
+
+import theme from "vitepress/dist/client/theme-default/index";
+import { AntDesignContainer } from "@vitepress-demo-preview/component";
+import "@vitepress-demo-preview/component/dist/style.css";
 
 export default {
-    ...DefaultTheme,
+    ...theme,
     enhanceApp({ app }) {
-        // app.component(Button.name, Button)
         app.use(MolixUi);
-        // app.component('Demo', Demo)
-        // app.component('DemoBlock', DemoBlock)
+        app.component("demo-preview", AntDesignContainer);
     },
 };

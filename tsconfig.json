@@ -27,6 +27,7 @@
         "typings/**/*.ts",
         "tests/**/*.ts",
         "tests/**/*.tsx",
-        "packages/**/**/**/_test_/*.spec.ts"
-, "packages/components/button/style/index.scss"    ]
+        "packages/**/**/**/_test_/*.spec.ts",
+        "packages/components/button/style/index.scss"
+    ]
 }
