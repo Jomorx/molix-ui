@@ -1,0 +1,31 @@
+@use "sass:map";
+
+@use "./mixin/config.scss" as *;
+
+$input-height: 30px;
+$input-width: 30px;
+$input-border: (
+    "white": #ffffff,
+    "base": #000000,
+);
+
+$input-radius: (
+    "circle": 100%,
+    "round": 20px,
+    "base": 4px,
+    "small": 2px,
+);
+
+.#{$namespace}-input {
+    width: 100%;
+    height: $input-height;
+    display: $input-width;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 11px;
+    background-image: none;
+    transform: translateZ(0);
+    border: 1px solid map-get($input-border, "base");
+    border-radius: map-get($input-radius, "base");
+}
