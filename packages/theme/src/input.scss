@@ -17,7 +17,6 @@ $input-radius: (
     position: relative;
     width: 100%;
     height: $input-height;
-    display: $input-width;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
@@ -39,10 +38,39 @@ $input-radius: (
 .#{$namespace}-input#{$element-separator}wrapper {
     border-radius: map-get($input-radius, "base");
 }
+
+.#{$namespace}-input {
+    input::placeholder {
+        color: map-get($borderColor, "most-d");
+    }
+}
+
 // input禁用
-.is-disabled {
-    position: relative;
-    z-index: 999;
-    background-color: map-get($borderColor, "light");
+.is-disabled .ml-input__inner {
+    background-color: map-get($borderColor, "lighter");
     cursor: not-allowed;
 }
+
+.is-exceed .ml-input__inner {
+    background-color: map-get($borderColor, "lighter");
+    cursor: not-allowed;
+}
+
+.#{$namespace}-input#{$element-separator}suffix {
+    position: absolute;
+    line-height: $input-height;
+    right: 8px;
+    cursor: pointer;
+    .#{$namespace}-input#{$element-separator}icon {
+        font-size: 18px;
+    }
+    .icon-biyan {
+        font-size: 24px;
+        margin-right: -1.5px;
+    }
+    .#{$namespace}-input#{$element-separator}count-inner {
+        cursor: default;
+        font-size: 12px;
+    }
+}
+// 切换密码展示

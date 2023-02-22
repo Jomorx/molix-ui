@@ -67,7 +67,7 @@ $btnPrefix: #{$namespace}-button;
         transition: color, background-color 0.3s linear;
     }
 }
-@each $size,$sizeStyle in $btnSize {
+@each $size, $sizeStyle in $btnSize {
     .#{$btnPrefix}--#{$size} {
         padding: map-get($sizeStyle, "padding");
     }

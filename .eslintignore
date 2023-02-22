@@ -11,3 +11,4 @@ dist
 demo
 *.d.ts
 commitlint.config.js
+packages/theme
