@@ -1,8 +1,9 @@
 @use "sass:map";
-
-@use "./mixin/config.scss" as *;
-@use "./common/var.scss" as *;
-@use "./mixin/mixins.scss" as *;
+@use "var";
+@use "common/var" as *;
+@use "mixins/mixins" as *;
+@use "mixins/var" as *;
+@use "mixins/function" as *;
 
 // 合并默认尺寸
 $rateHeight: () !default;
@@ -15,9 +16,11 @@ $rateHeight: map-merge(
     $rateHeight
 );
 
+// 设置rate的组件css变量
 @include b(rate) {
-    color: red;
-    @include e(item) {
-        color: green;
-    }
+    @include set-component-css-var("rate", $rate);
+}
+
+@include b(rate) {
+    color: getCssVar("rate", "fill-color");
 }
