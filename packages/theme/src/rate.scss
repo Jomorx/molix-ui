@@ -1,0 +1,23 @@
+@use "sass:map";
+
+@use "./mixin/config.scss" as *;
+@use "./common/var.scss" as *;
+@use "./mixin/mixins.scss" as *;
+
+// 合并默认尺寸
+$rateHeight: () !default;
+$rateHeight: map-merge(
+    (
+        "large": 40px,
+        "default": 32px,
+        "small": 24px,
+    ),
+    $rateHeight
+);
+
+@include b(rate) {
+    color: red;
+    @include e(item) {
+        color: green;
+    }
+}
