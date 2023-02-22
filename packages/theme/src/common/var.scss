@@ -22,9 +22,11 @@ $types: (
     ),
     "default": (
         "color": #606266,
-        "background": #fff,
-    ),
+        "bgColor": #fff,
+    )
 );
+
+// @include set-type-css-var($types);
 $btnSize: (
     "large": (
         "padding": 11px 17px,

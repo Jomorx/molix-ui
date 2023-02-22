@@ -1,4 +1,4 @@
-<ml-alert>hahahahaha
+<ml-alert type="success">hahahahaha
     <template #title>
         ddddddddddddd
     </template>

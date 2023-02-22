@@ -2,4 +2,13 @@
 
 @use "./mixin/config.scss" as *;
 @use "./common/var.scss" as *;
-$altPrefix: #{$namespace}-alert;
+@use "./mixin/mixins.scss" as *;
+
+// $altPrefix: #{$namespace}-alert;
+@include b(alert) {
+    @each $type,$typeInfo in $types {
+        @include m($type) {
+            background-color: map.get($typeInfo,"bgColor");
+        }
+    }
+}
