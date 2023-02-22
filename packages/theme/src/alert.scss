@@ -5,11 +5,50 @@
 @use "./mixins/mixins.scss" as *;
 @use "./mixins/function.scss" as *;
 // $altPrefix: #{$namespace}-alert;
+$alert-padding: 8px 16px;
+
 @include b(alert) {
-    @each $type,$typeInfo in $types {
+    line-height: 18px;
+    border-radius: 5px;
+    font-size: getCssVar("font-size", "extra-small");
+    max-width: 720px;
+    @each $type, $typeInfo in $types {
         @include m($type) {
-            background-color: getCssVar(type,$type,bgColor);
-            color: getCssVar(type,$type,color);
+            background-color: getCssVar(type, $type, bgColor);
+            color: getCssVar(type, $type, color);
+        }
+    }
+    &-fade{
+        &-leave-active{
+            transition: opacity 0.5s ease;
+        }
+        &-leave-to {
+            opacity: 0;
+          }
+    }
+    //content样式
+    @include e(content) {
+        position: relative;
+        padding: #{$alert-padding};
+        display: flex;
+        flex-direction: column;
+        @include when(center) {
+            align-items: center;
+        }
+        @include e(title) {
+            @include when(bold) {
+                font-weight: 700;
+            }
+        }
+
+        @include e(close-btn) {
+            @include when(closeable) {
+                position: absolute;
+                right: 15px;
+                top: 8px;
+                cursor: pointer;
+                color: inherit;
+            }
         }
     }
 }
