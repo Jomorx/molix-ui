@@ -21,5 +21,21 @@
     // Fill --el-fill-color-#{$type}
     @include set-component-css-var("fill-color", $fill-color);
 
-    // @include set-component-css-var("types", $types);
+    // z-index --el-index-#{$type}
+    @include set-component-css-var("index", $z-index);
+
+    // --el-border-radius-#{$type}
+    @include set-component-css-var("border-radius", $border-radius);
+
+    // Transition
+    // refer to this website to get the bezier motion function detail
+    // https://cubic-bezier.com/#p1,p2,p3,p4 (change px as your function parameter)
+    @include set-component-css-var("transition-duration", $transition-duration);
+
+    @include set-component-css-var("transition-function", $transition-function);
+    @include set-component-css-var("transition", $transition);
+
+    // common component size
+    @include set-component-css-var("component-size", $common-component-size);
+    @include set-type-css-var("types", $types);
 }

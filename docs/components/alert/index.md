@@ -1,1 +1,5 @@
-<ml-alert></ml-alert>
+<ml-alert type="success">hahahahaha
+    <template #title>
+        ddddddddddddd
+    </template>
+</ml-alert>

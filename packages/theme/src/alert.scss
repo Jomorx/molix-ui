@@ -1,4 +1,15 @@
 @use "sass:map";
 
-@use "./mixin/config.scss" as *;
+@use "./mixins/config.scss" as *;
 @use "./common/var.scss" as *;
+@use "./mixins/mixins.scss" as *;
+@use "./mixins/function.scss" as *;
+// $altPrefix: #{$namespace}-alert;
+@include b(alert) {
+    @each $type,$typeInfo in $types {
+        @include m($type) {
+            background-color: getCssVar(type,$type,bgColor);
+            color: getCssVar(type,$type,color);
+        }
+    }
+}

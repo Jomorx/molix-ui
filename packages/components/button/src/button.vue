@@ -1,4 +1,9 @@
 <script lang="ts">
+import { useNamespace } from "@molix/hooks";
+import { ref, computed } from "vue";
+interface IButtonEmits {
+    (e: "click", event: MouseEvent): any;
+}
 interface IButtonProps {
     //按钮类型
     type?: "primary" | "error" | "info" | "success" | "text" | "default";
@@ -8,17 +13,13 @@ interface IButtonProps {
     size?: "large" | "medium" | "small";
     color: string;
 }
-interface IButtonEmits {
-    (e: "click", event: MouseEvent): any;
-}
+
 export default {
     name: "ml-button",
 };
 </script>
 
 <script lang="ts" setup>
-import { useNamespace } from "@molix/hooks";
-import { ref, computed } from "vue";
 const NSbutton = useNamespace("button");
 const isWaveActive = ref(false);
 const props = withDefaults(defineProps<IButtonProps>(), {
@@ -30,13 +31,15 @@ const props = withDefaults(defineProps<IButtonProps>(), {
 });
 
 const emit = defineEmits<IButtonEmits>();
+//点击事件
 const handleClick = (e: MouseEvent) => {
     emit("click", e);
     isWaveActive.value = true;
     setTimeout(() => {
         isWaveActive.value = false;
-    }, 600);
+    }, 300);
 };
+//button类名
 const btnCls = computed(() => [
     NSbutton.element("btn"),
     NSbutton.is("round", props.round),

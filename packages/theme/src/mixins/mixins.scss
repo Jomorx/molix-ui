@@ -55,3 +55,10 @@
         }
     }
 }
+
+// @mixin set-type-css-var($types) {
+//     @each $type, $typeInfo in $types {
+//         #{$namespace}-type-#{$type}-color: map.get($typeInfo, "color");
+//         #{$namespace}-type-#{$type}-bgColor: map.get($typeInfo, "bgColor");
+//     }
+// }
