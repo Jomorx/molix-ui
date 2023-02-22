@@ -18,13 +18,13 @@ $alert-padding: 8px 16px;
             color: getCssVar(type, $type, color);
         }
     }
-    &-fade{
-        &-leave-active{
+    &-fade {
+        &-leave-active {
             transition: opacity 0.5s ease;
         }
         &-leave-to {
             opacity: 0;
-          }
+        }
     }
     //content样式
     @include e(content) {
