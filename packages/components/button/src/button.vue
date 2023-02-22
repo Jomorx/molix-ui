@@ -11,7 +11,6 @@ interface IButtonProps {
     round?: true | false;
     fall?: true | false;
     size?: "large" | "medium" | "small";
-    color: string;
 }
 
 export default {
@@ -59,7 +58,7 @@ const waveCls = computed(() => [
 </script>
 
 <template>
-    <button @click="handleClick" :style="{ color }" :class="btnCls" :disabled="disabled">
+    <button @click="handleClick" :class="btnCls" :disabled="disabled">
         <div :class="wrapperCls">
             <slot />
         </div>
