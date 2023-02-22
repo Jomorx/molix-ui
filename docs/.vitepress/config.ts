@@ -12,7 +12,10 @@ const sidebar = {
             text: "Form 表单项",
             collapsible: true,
             collapsed: false,
-            items: [{ text: "Input 输入框", link: "/components/input/" }],
+            items: [
+                { text: "Input 输入框", link: "/components/input/" },
+                { text: "Rate 评分", link: "/components/rate/" },
+            ],
         },
         { text: "导航" },
         {

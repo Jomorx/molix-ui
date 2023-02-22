@@ -13,3 +13,10 @@ package.json
 pnpm-lock.yaml
 vue.js
 _metadata.json
+/docs/*
+pnpm-workspace.yaml
+vite.config.ts
+tsconfig.json
+env.d.ts
+.eslintrc.json
+.vscode\settings.json
