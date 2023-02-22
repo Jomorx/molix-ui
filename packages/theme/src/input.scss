@@ -32,7 +32,7 @@ $input-radius: (
         border: 1px solid map-get($borderColor, "darker");
     }
     &:focus {
-        border: 1px solid map-get($types, "primary");
+        border: 1px solid map-get(map-get($types, "primary"), "bgColor");
     }
 }
 

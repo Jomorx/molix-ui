@@ -1,22 +1,36 @@
 @use "sass:map";
 
+@use "./mixin/config.scss" as *;
+@use "./common/var.scss" as *;
+
 @import "./common/var.scss";
-.btn {
+$btnPrefix: #{$namespace}-button;
+//button基础样式
+.#{$btnPrefix}#{$element-separator}btn {
     position: relative;
     overflow: visible;
 }
+//disabled相关
+.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+// round相关
+.is-round {
+    border-radius: 10px;
+}
+
 // 基础样式
-.content {
+.#{$btnPrefix}#{$element-separator}wrapper {
     border-radius: inherit;
     position: relative;
     z-index: 1;
     font-size: 14px;
-    padding: 3px 6px;
+    // padding: 4px 8px;
     text-align: center;
     display: block;
     text-decoration: none;
     overflow: hidden;
-    background-color: transparent;
     &::after,
     &::before {
         position: absolute;
@@ -41,18 +55,24 @@
         top: 0px !important;
     }
     //text hover样式
-    &:is(.text):not(:disabled){
+    &:is(.#{$btnPrefix}#{$modifier-separator}text):not(:disabled) {
         border: 3px solid transparent;
         color: black;
         background-color: transparent;
     }
-    &:is(.text):not(:disabled):hover{
+    //text hover样式
+    &:is(.#{$btnPrefix}#{$modifier-separator}text):not(:disabled):hover {
         color: rgba(0, 0, 0, 0.88);
         background-color: rgba(0, 0, 0, 0.06);
-        transition: color,background-color 0.3s linear;
+        transition: color, background-color 0.3s linear;
     }
 }
-.button-wave {
+@each $size,$sizeStyle in $btnSize {
+    .#{$btnPrefix}--#{$size} {
+        padding: map-get($sizeStyle, "padding");
+    }
+}
+.#{$btnPrefix}#{$element-separator}wave {
     position: absolute;
     inset: 0px;
     border-radius: inherit;
@@ -62,51 +82,51 @@
 }
 
 //type相关
-@each $type, $color in $types {
-    .#{$type}:not(.fall) {
-        color: white;
-        background-color: $color;
-        border: 3px solid $color;
+@each $type, $typeInfo in $types {
+    .#{$btnPrefix}#{$modifier-separator}#{$type}:not(.is-fall) {
+        color: map-get($typeInfo, "color");
+        background-color: map-get($typeInfo, "bgColor");
+        border: 2px solid map-get($typeInfo, "bgColor");
+
         &::after,
         &::before {
-            background-color: $color;
+            background-color: transparent;
         }
     }
-    .#{$type} {
-        color: $color;
-        border: 3px solid $color;
+    .#{$btnPrefix}#{$modifier-separator}#{$type} {
+        color: map-get($typeInfo, "bgColor");
+        border: 2px solid map-get($typeInfo, "bgColor");
         &::after,
         &::before {
-            background-color: $color;
+            @if $type == "default" {
+                background-color: map-get($typeInfo, "color");
+            } @else {
+                background-color: map-get($typeInfo, "bgColor");
+            }
         }
     }
-    .#{$type}-button-wave-active {
+
+    //wave相关
+    .is-#{$type}-wave-active {
         animation-name: #{$type}-button-wave, #{$type}-button-wave-opacity;
     }
+
     @keyframes #{$type}-button-wave {
         from {
-            box-shadow: 0 0 0.5px 0 $color;
+            box-shadow: 0 0 0.5px 0 map-get($typeInfo, "bgColor");
         }
         to {
             // don't use exact 5px since chrome will display the animation with glitches
-            box-shadow: 0 0 0.5px 4.5px $color;
+            box-shadow: 0 0 0.5px 4.5px map-get($typeInfo, "bgColor");
         }
     }
 
     @keyframes #{$type}-button-wave-opacity {
         from {
-            opacity: $color;
+            opacity: map-get($typeInfo, "bgColor");
         }
         to {
             opacity: 0;
         }
     }
-}
-
-// round相关
-.round {
-    border-radius: 10px;
-}
-.disabled {
-    cursor: not-allowed;
 }
