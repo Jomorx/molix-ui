@@ -1,0 +1,30 @@
+{
+    "id": "3908903",
+    "name": "molix",
+    "font_family": "iconfont",
+    "css_prefix_text": "icon-",
+    "description": "",
+    "glyphs": [
+        {
+            "icon_id": "25620294",
+            "name": "闭眼",
+            "font_class": "biyan",
+            "unicode": "e72e",
+            "unicode_decimal": 59182
+        },
+        {
+            "icon_id": "201556",
+            "name": "查看",
+            "font_class": "chakan",
+            "unicode": "e600",
+            "unicode_decimal": 58880
+        },
+        {
+            "icon_id": "16921551",
+            "name": "清除",
+            "font_class": "qingchu",
+            "unicode": "e7e9",
+            "unicode_decimal": 59369
+        }
+    ]
+}

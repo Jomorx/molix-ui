@@ -9,7 +9,6 @@ export const useNamespace = (blockName: string) => {
         (name: string): string;
     } = (name: string, ...args: [boolean | undefined] | []) => {
         const state = args.length >= 1 ? args[0]! : true;
-        console.log(name, state);
         return name && state ? `${statePrefix}${name}` : "";
     };
     return {
