@@ -6,10 +6,10 @@
 @use "./mixins/function.scss" as *;
 // $altPrefix: #{$namespace}-alert;
 @include b(alert) {
-    @each $type,$typeInfo in $types {
+    @each $type, $typeInfo in $types {
         @include m($type) {
-            background-color: getCssVar(type,$type,bgColor);
-            color: getCssVar(type,$type,color);
+            background-color: getCssVar(type, $type, bgColor);
+            color: getCssVar(type, $type, color);
         }
     }
 }

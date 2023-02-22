@@ -61,6 +61,7 @@ $border-color: map.merge(
         "extra-light": #f2f6fc,
         "dark": #d4d7de,
         "darker": #cdd0d6,
+        "very-dark": #929395,
     ),
     $border-color
 );
@@ -209,47 +210,43 @@ $mask-color: map.merge(
 // transition
 $transition: () !default;
 $transition: map.merge(
-  (
-    'all': all getCssVar('transition-duration')
-      getCssVar('transition-function-ease-in-out-bezier'),
-    'fade': opacity getCssVar('transition-duration')
-      getCssVar('transition-function-fast-bezier'),
-    'md-fade': (
-      transform getCssVar('transition-duration')
-        getCssVar('transition-function-fast-bezier'),
-      opacity getCssVar('transition-duration')
-        getCssVar('transition-function-fast-bezier'),
+    (
+        "all": all getCssVar("transition-duration")
+            getCssVar("transition-function-ease-in-out-bezier"),
+        "fade": opacity getCssVar("transition-duration")
+            getCssVar("transition-function-fast-bezier"),
+        "md-fade": (
+            transform getCssVar("transition-duration") getCssVar("transition-function-fast-bezier"),
+            opacity getCssVar("transition-duration") getCssVar("transition-function-fast-bezier"),
+        ),
+        "fade-linear": opacity getCssVar("transition-duration-fast") linear,
+        "border": border-color getCssVar("transition-duration-fast")
+            getCssVar("transition-function-ease-in-out-bezier"),
+        "box-shadow": box-shadow getCssVar("transition-duration-fast")
+            getCssVar("transition-function-ease-in-out-bezier"),
+        "color": color getCssVar("transition-duration-fast")
+            getCssVar("transition-function-ease-in-out-bezier"),
     ),
-    'fade-linear': opacity getCssVar('transition-duration-fast') linear,
-    'border': border-color getCssVar('transition-duration-fast')
-      getCssVar('transition-function-ease-in-out-bezier'),
-    'box-shadow': box-shadow getCssVar('transition-duration-fast')
-      getCssVar('transition-function-ease-in-out-bezier'),
-    'color': color getCssVar('transition-duration-fast')
-      getCssVar('transition-function-ease-in-out-bezier'),
-  ),
-  $transition
+    $transition
 );
 
 $transition-duration: () !default;
 $transition-duration: map.merge(
-  (
-    '': 0.3s,
-    'fast': 0.2s,
-  ),
-  $transition-duration
+    (
+        "": 0.3s,
+        "fast": 0.2s,
+    ),
+    $transition-duration
 );
 
 $transition-function: () !default;
 $transition-function: map.merge(
-  (
-    'ease-in-out-bezier': cubic-bezier(0.645, 0.045, 0.355, 1),
-    'fast-bezier': cubic-bezier(0.23, 1, 0.32, 1),
-  ),
-  $transition-function
+    (
+        "ease-in-out-bezier": cubic-bezier(0.645, 0.045, 0.355, 1),
+        "fast-bezier": cubic-bezier(0.23, 1, 0.32, 1),
+    ),
+    $transition-function
 );
-
-
 
 // Rate
 $rate: () !default;
