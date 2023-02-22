@@ -1,7 +1,7 @@
 @use "sass:map";
 
-@use "./mixin/config.scss" as *;
-@use "./common/var.scss" as *;
+@use "mixins/config.scss" as *;
+@use "common/var.scss" as *;
 
 $input-height: 30px;
 $input-width: 30px;
@@ -23,12 +23,12 @@ $input-radius: (
     padding: 1px 11px;
     background-image: none;
     transform: translateZ(0);
-    border: 1px solid map-get($borderColor, "light");
+    border: 1px solid map-get($border-color, "light");
     border-radius: map-get($input-radius, "base");
-    box-shadow: 0 0 0 0.5px map-get($borderColor, "light") inset;
+    box-shadow: 0 0 0 0.5px map-get($border-color, "light") inset;
     transition: all 0.1s linear;
     &:hover {
-        border: 1px solid map-get($borderColor, "darker");
+        border: 1px solid map-get($border-color, "darker");
     }
     &:focus {
         border: 1px solid map-get(map-get($types, "primary"), "bgColor");
@@ -41,18 +41,18 @@ $input-radius: (
 
 .#{$namespace}-input {
     input::placeholder {
-        color: map-get($borderColor, "most-d");
+        color: map-get($border-color, "most-d");
     }
 }
 
 // input禁用
 .is-disabled .ml-input__inner {
-    background-color: map-get($borderColor, "lighter");
+    background-color: map-get($border-color, "lighter");
     cursor: not-allowed;
 }
 
 .is-exceed .ml-input__inner {
-    background-color: map-get($borderColor, "lighter");
+    background-color: map-get($border-color, "lighter");
     cursor: not-allowed;
 }
 

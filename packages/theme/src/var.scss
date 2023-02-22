@@ -1,0 +1,25 @@
+@use "sass:map";
+
+// CSS3 var
+@use "common/var" as *;
+@use "mixins/var" as *;
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+
+// 基础样式
+:root {
+    @include set-component-css-var("font-size", $font-size);
+    @include set-component-css-var("font-family", $font-family);
+
+    // color-scheme
+    // Background --el-bg-color-#{$type}
+    @include set-component-css-var("bg-color", $bg-color);
+    // --el-text-color-#{$type}
+    @include set-component-css-var("text-color", $text-color);
+    // --el-border-color-#{$type}
+    @include set-component-css-var("border-color", $border-color);
+    // Fill --el-fill-color-#{$type}
+    @include set-component-css-var("fill-color", $fill-color);
+
+    // @include set-component-css-var("types", $types);
+}

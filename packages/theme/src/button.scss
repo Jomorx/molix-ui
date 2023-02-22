@@ -1,7 +1,7 @@
 @use "sass:map";
 
-@use "./mixin/config.scss" as *;
-@use "./common/var.scss" as *;
+@use "mixins/config.scss" as *;
+@use "common/var.scss" as *;
 
 @import "./common/var.scss";
 $btnPrefix: #{$namespace}-button;
