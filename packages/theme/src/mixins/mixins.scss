@@ -1,5 +1,5 @@
-@use "./config.scss" as *;
-@use "./function.scss" as *;
+@use "config.scss" as *;
+@use "function.scss" as *;
 
 @mixin b($block) {
     $B: $namespace + "-" + $block !global;

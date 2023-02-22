@@ -48,4 +48,5 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use "../../../theme/src/rate.scss";
+@use "../../../theme/src/var.scss";
 </style>

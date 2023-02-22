@@ -1,3 +1,5 @@
+@use "sass:map";
+@use "../mixins/function.scss" as *;
 //颜色相关
 $types: (
     "primary": (
@@ -23,10 +25,9 @@ $types: (
     "default": (
         "color": #606266,
         "bgColor": #fff,
-    )
+    ),
 );
 
-// @include set-type-css-var($types);
 $btnSize: (
     "large": (
         "padding": 11px 17px,
@@ -39,19 +40,231 @@ $btnSize: (
     ),
 );
 
-// 基础颜色
-$borderColor: (
-    "base": #dcdfe6,
-    "light": #e4e7ed,
-    "lighter": #eceef3,
-    "dark": #d4d7de,
-    "darker": #c0c2c8,
-    "most-d": #a8aab0,
+$text-color: () !default;
+$text-color: map.merge(
+    (
+        "primary": #303133,
+        "regular": #606266,
+        "secondary": #909399,
+        "placeholder": #a8abb2,
+        "disabled": #c0c4cc,
+    ),
+    $text-color
 );
 
-$fontSize: (
-    "large": 18px,
-    "medium": 16px,
-    "base": 14px,
-    "small": 13px,
+$border-color: () !default;
+$border-color: map.merge(
+    (
+        "": #dcdfe6,
+        "light": #e4e7ed,
+        "lighter": #ebeef5,
+        "extra-light": #f2f6fc,
+        "dark": #d4d7de,
+        "darker": #cdd0d6,
+    ),
+    $border-color
+);
+
+$fill-color: () !default;
+$fill-color: map.merge(
+    (
+        "": #f0f2f5,
+        "light": #f5f7fa,
+        "lighter": #fafafa,
+        "extra-light": #fafcff,
+        "dark": #ebedf0,
+        "darker": #e6e8eb,
+        "blank": #ffffff,
+    ),
+    $fill-color
+);
+
+// Background
+$bg-color: () !default;
+$bg-color: map.merge(
+    (
+        "": #ffffff,
+        "page": #f2f3f5,
+        "overlay": #ffffff,
+    ),
+    $bg-color
+);
+
+// Border
+$border-width: 1px !default;
+$border-style: solid !default;
+$border-color-hover: getCssVar("text-color", "disabled") !default;
+
+$border-radius: () !default;
+$border-radius: map.merge(
+    (
+        "base": 4px,
+        "small": 2px,
+        "round": 20px,
+        "circle": 100%,
+    ),
+    $border-radius
+);
+
+// Box-shadow
+$box-shadow: () !default;
+$box-shadow: map.merge(
+    (
+        "": (
+            0px 12px 32px 4px rgba(0, 0, 0, 0.04),
+            0px 8px 20px rgba(0, 0, 0, 0.08),
+        ),
+        "light": (
+            0px 0px 12px rgba(0, 0, 0, 0.12),
+        ),
+        "lighter": (
+            0px 0px 6px rgba(0, 0, 0, 0.12),
+        ),
+        "dark": (
+            0px 16px 48px 16px rgba(0, 0, 0, 0.08),
+            0px 12px 32px rgba(0, 0, 0, 0.12),
+            0px 8px 16px -8px rgba(0, 0, 0, 0.16),
+        ),
+    ),
+    $box-shadow
+);
+
+// Typography
+$font-family: () !default;
+$font-family: map.merge(
+    (
+        // default family
+        "":
+            "'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"
+    ),
+    $font-family
+);
+
+$font-size: () !default;
+$font-size: map.merge(
+    (
+        "extra-large": 20px,
+        "large": 18px,
+        "medium": 16px,
+        "base": 14px,
+        "small": 13px,
+        "extra-small": 12px,
+    ),
+    $font-size
+);
+
+// zIndex
+$z-index: () !default;
+$z-index: map.merge(
+    (
+        "normal": 1,
+        "top": 1000,
+        "popper": 2000,
+    ),
+    $z-index
+);
+
+// Disable default
+$disabled: () !default;
+$disabled: map.merge(
+    (
+        "bg-color": getCssVar("fill-color", "light"),
+        "text-color": getCssVar("text-color", "placeholder"),
+        "border-color": getCssVar("border-color", "light"),
+    ),
+    $disabled
+);
+
+$common-component-size: () !default;
+$common-component-size: map.merge(
+    (
+        "large": 40px,
+        "default": 32px,
+        "small": 24px,
+    ),
+    $common-component-size
+);
+
+// overlay
+$overlay-color: () !default;
+$overlay-color: map.merge(
+    (
+        "": rgba(0, 0, 0, 0.8),
+        "light": rgba(0, 0, 0, 0.7),
+        "lighter": rgba(0, 0, 0, 0.5),
+    ),
+    $overlay-color
+);
+
+// mask
+$mask-color: () !default;
+$mask-color: map.merge(
+    (
+        "": rgba(255, 255, 255, 0.9),
+        "extra-light": rgba(255, 255, 255, 0.3),
+    ),
+    $mask-color
+);
+
+// transition
+$transition: () !default;
+$transition: map.merge(
+  (
+    'all': all getCssVar('transition-duration')
+      getCssVar('transition-function-ease-in-out-bezier'),
+    'fade': opacity getCssVar('transition-duration')
+      getCssVar('transition-function-fast-bezier'),
+    'md-fade': (
+      transform getCssVar('transition-duration')
+        getCssVar('transition-function-fast-bezier'),
+      opacity getCssVar('transition-duration')
+        getCssVar('transition-function-fast-bezier'),
+    ),
+    'fade-linear': opacity getCssVar('transition-duration-fast') linear,
+    'border': border-color getCssVar('transition-duration-fast')
+      getCssVar('transition-function-ease-in-out-bezier'),
+    'box-shadow': box-shadow getCssVar('transition-duration-fast')
+      getCssVar('transition-function-ease-in-out-bezier'),
+    'color': color getCssVar('transition-duration-fast')
+      getCssVar('transition-function-ease-in-out-bezier'),
+  ),
+  $transition
+);
+
+$transition-duration: () !default;
+$transition-duration: map.merge(
+  (
+    '': 0.3s,
+    'fast': 0.2s,
+  ),
+  $transition-duration
+);
+
+$transition-function: () !default;
+$transition-function: map.merge(
+  (
+    'ease-in-out-bezier': cubic-bezier(0.645, 0.045, 0.355, 1),
+    'fast-bezier': cubic-bezier(0.23, 1, 0.32, 1),
+  ),
+  $transition-function
+);
+
+
+
+// Rate
+$rate: () !default;
+$rate: map.merge(
+    (
+        "height": 20px,
+        "font-size": getCssVar("font-size-base"),
+        "icon-size": 18px,
+        "icon-margin": 6px,
+        // seems not be used, to be removed
+        // 'icon-color': getCssVar('text-color-placeholder),
+        "void-color": getCssVar("border-color", "darker"),
+        "fill-color": #f7ba2a,
+        "disabled-void-color": getCssVar("fill-color"),
+        "text-color": getCssVar("text-color", "primary"),
+    ),
+    $rate
 );
