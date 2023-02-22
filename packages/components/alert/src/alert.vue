@@ -10,7 +10,6 @@ interface IAlertProps {
     closeable?: boolean;
     closeText?: string;
 }
-
 export default {
     name: "ml-alert",
 };
@@ -29,27 +28,41 @@ const props = withDefaults(defineProps<IAlertProps>(), {
     closeable: true,
     closeText: "",
 });
+const emit = defineEmits<{
+    (name: "close", e: MouseEvent): void;
+}>();
+defineExpose({
+    visible,
+});
+// 触发close 设置visible=false
+const handleClick = (e: MouseEvent) => {
+    emit("close", e);
+    visible.value = false;
+};
+
 const altWrapperCls = computed(() => [
     ns.block(),
     ns.modifier(props.type),
     ns.is("center", props.center),
 ]);
-const altContentCls = computed(() => [ns.element("content")]);
-const altTitleCls = computed(() => [ns.element("title"), isBoldTitle]);
+const altContentCls = computed(() => [ns.element("content"), ns.is("center", props.center)]);
+const altTitleCls = computed(() => [ns.element("title"), isBoldTitle.value]);
 // 当有description时显示boldTitle
 const isBoldTitle = computed(() => ({
     [ns.is("bold")]: props.description || slots.default,
 }));
+
 const altDescCls = computed(() => [ns.element("description")]);
 const closeBtnCls = computed(() => [
     ns.element("close-btn"),
     ns.is("customed", !!props.closeText.length),
+    ns.is("closeable", props.closeable),
 ]);
 </script>
 
 <template>
-    <transition :name="ns.block('fade')">
-        <div :class="altWrapperCls" v-show="visible" role="alert">
+    <Transition :name="ns.block('fade')">
+        <div :class="altWrapperCls" v-if="visible" role="alert">
             <!-- <div>icon</div> -->
             <div :class="altContentCls">
                 <!-- title -->
@@ -57,20 +70,21 @@ const closeBtnCls = computed(() => [
                     <slot name="title">{{ title }}</slot>
                 </span>
                 <!-- description -->
-                <p v-if="description || $slots.default" :class="altDescCls">
+                <span v-if="description || $slots.default" :class="altDescCls">
                     <slot>{{ description }}</slot>
-                </p>
+                </span>
+                <!-- closeBtn -->
                 <template v-if="closeable">
-                    <div v-if="closeText" :class="closeBtnCls">
+                    <div v-if="closeText" @click="handleClick" :class="closeBtnCls">
                         {{ closeText }}
                     </div>
-                    <el-icon v-else :class="closeBtnCls">
+                    <div v-else @click="handleClick" :class="closeBtnCls">
                         <i class="iconfont icon-qingchu"></i>
-                    </el-icon>
+                    </div>
                 </template>
             </div>
         </div>
-    </transition>
+    </Transition>
 </template>
 <style lang="scss" scoped>
 @import "../../../theme/src/alert.scss";
