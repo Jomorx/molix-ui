@@ -1,8 +1,8 @@
 @font-face {
     font-family: "iconfont"; /* Project id 3908903 */
-    src: url("iconfont.woff2?t=1676997475357") format("woff2"),
-        url("iconfont.woff?t=1676997475357") format("woff"),
-        url("iconfont.ttf?t=1676997475357") format("truetype");
+    src: url("iconfont.woff2?t=1677071670789") format("woff2"),
+        url("iconfont.woff?t=1677071670789") format("woff"),
+        url("iconfont.ttf?t=1677071670789") format("truetype");
 }
 
 .iconfont {
@@ -11,6 +11,18 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-star-full:before {
+    content: "\e9a1";
+}
+
+.icon-star:before {
+    content: "\e9a2";
+}
+
+.icon-star-half:before {
+    content: "\e9a3";
 }
 
 .icon-biyan:before {

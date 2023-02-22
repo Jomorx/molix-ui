@@ -22,5 +22,24 @@ $rateHeight: map-merge(
 }
 
 @include b(rate) {
-    color: getCssVar("rate", "fill-color");
+    display: inline-flex;
+    align-items: center;
+    height: getCssVar("rate", "height");
+    @include e(item) {
+        display: inline-block;
+        color: getCssVar("rate", "void-color");
+        cursor: pointer;
+        margin-right: 3px;
+    }
+    @include e(icon) {
+        svg {
+            transition: getCssVar("transition-duration", "fast");
+        }
+        &:hover svg {
+            transform: scale(1.2);
+        }
+        @include when(active) {
+            color: getCssVar("rate", "fill-color");
+        }
+    }
 }
