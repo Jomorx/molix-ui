@@ -1,32 +1,23 @@
 {
-  "hash": "13fb17bc",
-  "browserHash": "e76045c7",
+  "hash": "1be8b0f6",
+  "browserHash": "fcdcf5cf",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "69e4c4c3",
+      "fileHash": "caf211f5",
       "needsInterop": false
     },
     "@vitepress-demo-preview/component": {
       "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+@vitepress-demo-preview+component@2.1.0_ortxkugafaky3yh6qrvsr4bikm/node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
       "file": "@vitepress-demo-preview_component.js",
-      "fileHash": "83374c87",
+      "fileHash": "6ccd0ef5",
       "needsInterop": false
-    },
-    "lodash": {
-      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+lodash@4.17.21/node_modules/lodash/lodash.js",
-      "file": "lodash.js",
-      "fileHash": "a242d8a7",
-      "needsInterop": true
     }
   },
   "chunks": {
     "chunk-DJZ47UOU": {
       "file": "chunk-DJZ47UOU.js"
-    },
-    "chunk-RSJERJUL": {
-      "file": "chunk-RSJERJUL.js"
     }
   }
 }

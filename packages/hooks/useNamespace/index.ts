@@ -4,6 +4,10 @@ export const useNamespace = (blockName: string) => {
     // 生成字符串形如 ml-${block}
     const block = (blockSuffix = "") => _bem(defaultNamespace, blockName, blockSuffix, "", "");
     const element = (el?: string) => (el ? _bem(defaultNamespace, blockName, "", el, "") : "");
+
+    const modifier = (modifier?: string) =>
+        modifier ? _bem(defaultNamespace, blockName, "", "", modifier) : "";
+
     const is: {
         (name: string, state: boolean | undefined): string;
         (name: string): string;
@@ -15,6 +19,7 @@ export const useNamespace = (blockName: string) => {
         block,
         element,
         is,
+        modifier,
     };
 };
 const _bem = (

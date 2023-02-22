@@ -1,9 +1,12 @@
 <script lang="ts">
 interface IButtonProps {
     //按钮类型
-    type?: "primary" | "error" | "info" | "success";
+    type?: "primary" | "error" | "info" | "success" | "text" | "default";
     disabled?: true | false;
     round?: true | false;
+    fall?: true | false;
+    size?: "large" | "medium" | "small";
+    color: string;
 }
 interface IButtonEmits {
     (e: "click", event: MouseEvent): any;
@@ -14,14 +17,18 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-
+import { useNamespace } from "@molix/hooks";
+import { ref, computed } from "vue";
+const NSbutton = useNamespace("button");
 const isWaveActive = ref(false);
 const props = withDefaults(defineProps<IButtonProps>(), {
     type: "primary",
     disabled: false,
     round: false,
+    fall: false,
+    size: "medium",
 });
+
 const emit = defineEmits<IButtonEmits>();
 const handleClick = (e: MouseEvent) => {
     emit("click", e);
@@ -30,19 +37,30 @@ const handleClick = (e: MouseEvent) => {
         isWaveActive.value = false;
     }, 600);
 };
+const btnCls = computed(() => [
+    NSbutton.element("btn"),
+    NSbutton.is("round", props.round),
+    NSbutton.is("disabled", props.disabled),
+]);
+const wrapperCls = computed(() => [
+    NSbutton.element("wrapper"),
+    NSbutton.is("fall", props.fall),
+    NSbutton.modifier(props.type),
+    NSbutton.modifier(props.size),
+]);
+
+const waveCls = computed(() => [
+    NSbutton.element("wave"),
+    NSbutton.is(`${props.type}-wave-active`, isWaveActive.value),
+]);
 </script>
 
 <template>
-    <button @click="handleClick" class="btn" :class="{ round, disabled }" :disabled="disabled">
-        <div
-            :class="{
-                content: true,
-                [type]: true,
-            }"
-        >
+    <button @click="handleClick" :style="{ color }" :class="btnCls" :disabled="disabled">
+        <div :class="wrapperCls">
             <slot />
         </div>
-        <div :class="{ 'button-wave': true, [`${type}-button-wave-active`]: isWaveActive }"></div>
+        <div :class="waveCls"></div>
     </button>
 </template>
 

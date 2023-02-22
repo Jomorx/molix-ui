@@ -5,9 +5,12 @@ import { Input } from "./input";
 
 import "../theme/src/icons/iconfont.css";
 export { Button };
+import { Alert } from "./alert";
+const components = [Button, Input, Alert];
 export default {
     install(app: App) {
-        app.component(Button.name, Button);
-        app.component(Input.name, Input);
+        components.forEach((component) => {
+            app.component(component.name, component);
+        });
     },
 };
