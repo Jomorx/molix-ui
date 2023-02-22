@@ -1,10 +1,40 @@
 //颜色相关
 $types: (
-    "primary": #409eff,
-    "danger": #f56c6c,
-    "info": #909399,
-    "warning": #e6a23c,
-    "success": #67c23a,
+    "primary": (
+        "color": #fff,
+        "bgColor": #409eff,
+    ),
+    "danger": (
+        "color": #fff,
+        "bgColor": #ff7875,
+    ),
+    "info": (
+        "color": #fff,
+        "bgColor": #909399,
+    ),
+    "warning": (
+        "color": #fff,
+        "bgColor": #e6a23c,
+    ),
+    "success": (
+        "color": #fff,
+        "bgColor": #67c23a,
+    ),
+    "default": (
+        "color": #606266,
+        "background": #fff,
+    ),
+);
+$btnSize: (
+    "large": (
+        "padding": 11px 17px,
+    ),
+    "medium": (
+        "padding": 7px 13px,
+    ),
+    "small": (
+        "padding": 3px 9px,
+    ),
 );
 
 // 基础颜色
