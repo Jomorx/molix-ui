@@ -14,7 +14,10 @@
         "noEmit": true,
         "baseUrl": "./",
         "paths": {
-            "@molix/*": ["packages/*"]
+            "@molix/*": ["packages/*"],
+            "components/*":["packages/components/*"],
+            "theme/*":["packages/theme/*"]
+
         },
         "types": []
     },

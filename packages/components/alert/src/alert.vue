@@ -86,6 +86,3 @@ const closeBtnCls = computed(() => [
         </div>
     </Transition>
 </template>
-<style lang="scss" scoped>
-@import "../../../theme/src/alert.scss";
-</style>

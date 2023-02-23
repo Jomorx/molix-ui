@@ -15,6 +15,7 @@
     "dependencies": {
         "@types/lodash": "^4.14.191",
         "@vitejs/plugin-vue": "^4.0.0",
+        "@vueuse/core": "^9.13.0",
         "lodash": "^4.17.21",
         "vue": "^3.2.45"
     },

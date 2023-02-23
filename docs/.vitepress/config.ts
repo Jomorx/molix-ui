@@ -22,7 +22,7 @@ const sidebar = {
             text: "反馈组件 FeedBack",
             collapsible: true,
             collapsed: false,
-            items: [{ text: "Alert 提示", link: "/components/alert/" }],
+            items: [{ text: "Alert 提示", link: "/components/alert/" },{ text: "Message 消息提示", link: "/components/message/" }],
         },
         { text: "数据录入" },
         { text: "数据展示" },
