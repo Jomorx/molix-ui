@@ -27,7 +27,7 @@ module.exports = {
 
     scopes: [
         { name: "Jomorx" },
-        // { name: "admin" },
+        { name: "Linxae" },
         // { name: "exampleScope" },
         // { name: "changeMe" },
     ],

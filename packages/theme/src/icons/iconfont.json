@@ -6,6 +6,27 @@
     "description": "",
     "glyphs": [
         {
+            "icon_id": "18170317",
+            "name": "星,星星,星形,半星,实星",
+            "font_class": "star-full",
+            "unicode": "e9a1",
+            "unicode_decimal": 59809
+        },
+        {
+            "icon_id": "18170318",
+            "name": "星,星星,星形,半星,实星",
+            "font_class": "star",
+            "unicode": "e9a2",
+            "unicode_decimal": 59810
+        },
+        {
+            "icon_id": "18170319",
+            "name": "星,星星,星形,半星",
+            "font_class": "star-half",
+            "unicode": "e9a3",
+            "unicode_decimal": 59811
+        },
+        {
             "icon_id": "25620294",
             "name": "闭眼",
             "font_class": "biyan",

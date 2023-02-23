@@ -63,8 +63,7 @@
 }
 @mixin set-type-css-var($name, $types) {
     @each $type, $typeInfo in $types {
-        @include set-css-var-value(("type",$type,"color"),map.get($typeInfo,"color"));
-        @include set-css-var-value(("type",$type,"bgColor"),map.get($typeInfo,"bgColor"));
-
+        @include set-css-var-value(("type", $type, "color"), map.get($typeInfo, "color"));
+        @include set-css-var-value(("type", $type, "bgColor"), map.get($typeInfo, "bgColor"));
     }
 }
