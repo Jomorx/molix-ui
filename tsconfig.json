@@ -19,7 +19,7 @@
             "theme/*":["packages/theme/*"]
 
         },
-        "types": []
+        "types": ["node"]
     },
     "include": [
         "examples/**/*.ts",

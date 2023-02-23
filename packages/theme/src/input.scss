@@ -1,7 +1,9 @@
 @use "sass:map";
 
 @use "mixins/config.scss" as *;
+@use "mixins/mixins.scss" as *;
 @use "common/var.scss" as *;
+@use "mixins/function.scss" as *;
 
 $input-height: 30px;
 $input-width: 30px;
@@ -13,64 +15,62 @@ $input-radius: (
     "small": 2px,
 );
 
-.#{$namespace}-input#{$element-separator}inner {
-    position: relative;
-    width: 100%;
-    height: $input-height;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
-    padding: 1px 11px;
-    background-image: none;
-    transform: translateZ(0);
-    border: 1px solid map-get($border-color, "light");
-    border-radius: map-get($input-radius, "base");
-    box-shadow: 0 0 0 0.5px map-get($border-color, "light") inset;
-    transition: all 0.1s linear;
-    &:hover {
-        border: 1px solid map-get($border-color, "darker");
-    }
-    &:focus {
-        border: 1px solid map-get(map-get($types, "primary"), "bgColor");
-    }
-}
-
-.#{$namespace}-input#{$element-separator}wrapper {
-    border-radius: map-get($input-radius, "base");
-}
-
-.#{$namespace}-input {
+@include b(input) {
     input::placeholder {
-        color: map-get($border-color, "most-d");
+        color: getCssVar("border-color", "very-dark");
     }
-}
+    @include e(inner) {
+        position: relative;
+        width: 100%;
+        height: $input-height;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        padding: 1px 11px;
+        background-image: none;
+        transform: translateZ(0);
+        border: 1px solid getCssVar("border-color", "darker");
+        border-radius: getCssVar("border-radius", "base");
+        box-shadow: 0 0 0 0.5px getCssVar("border-color", "light") inset;
+        transition: all 0.1s linear;
+        &:hover {
+            border: 1px solid getCssVar("border-color", "very-dark");
+        }
+        &:focus {
+            border: 1px solid getCssVar("type-primary", "bgColor");
+        }
+    }
 
-// input禁用
-.is-disabled .ml-input__inner {
-    background-color: map-get($border-color, "lighter");
-    cursor: not-allowed;
-}
+    @include e(wrapper) {
+        border-radius: getCssVar("border-radius", "base");
+    }
 
-.is-exceed .ml-input__inner {
-    background-color: map-get($border-color, "lighter");
-    cursor: not-allowed;
-}
+    @include e(suffix) {
+        position: absolute;
+        line-height: $input-height;
+        right: 8px;
+        cursor: pointer;
+        @include e(icon) {
+            font-size: 18px;
+        }
+        @include e(count-inner) {
+            cursor: default;
+            font-size: 12px;
+        }
+        .icon-biyan {
+            font-size: 24px;
+            margin-right: -1.5px;
+        }
+    }
 
-.#{$namespace}-input#{$element-separator}suffix {
-    position: absolute;
-    line-height: $input-height;
-    right: 8px;
-    cursor: pointer;
-    .#{$namespace}-input#{$element-separator}icon {
-        font-size: 18px;
-    }
-    .icon-biyan {
-        font-size: 24px;
-        margin-right: -1.5px;
-    }
-    .#{$namespace}-input#{$element-separator}count-inner {
-        cursor: default;
-        font-size: 12px;
+    // input禁用
+    @include when(disabled) {
+        @include e(inner) {
+            background-color: getCssVar("border-color", "light");
+            cursor: not-allowed;
+            &:hover {
+                border: 1px solid getCssVar("border-color", "darker");
+            }
+        }
     }
 }
-// 切换密码展示

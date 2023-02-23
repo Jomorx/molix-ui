@@ -45,6 +45,8 @@
         "no-console": "off",
         "new-cap": "off",
         "no-undef": "off",
+        "indent":"off",
+        "no-redeclare":"off",
         // "@typescript-eslint/no-unused-vars": [
         // 	"error",
         // 	{

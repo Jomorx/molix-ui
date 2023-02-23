@@ -20,3 +20,4 @@ tsconfig.json
 env.d.ts
 .eslintrc.json
 .vscode\settings.json
+packages/theme/src/icons

@@ -39,6 +39,28 @@ export const useNamespace = (blockName: string) => {
         const state = args.length >= 1 ? args[0]! : true;
         return name && state ? `${statePrefix}${name}` : "";
     };
+    const cssVar = (object: Record<string, string>) => {
+        const styles: Record<string, string> = {};
+        for (const key in object) {
+            if (object[key]) {
+                styles[`--${defaultNamespace}-${key}`] = object[key];
+            }
+        }
+        return styles;
+    };
+    // with block
+    const cssVarBlock = (object: Record<string, string>) => {
+        const styles: Record<string, string> = {};
+        for (const key in object) {
+            if (object[key]) {
+                styles[`--${defaultNamespace}-${block}-${key}`] = object[key];
+            }
+        }
+        return styles;
+    };
+
+    const cssVarName = (name: string) => `--${defaultNamespace}-${name}`;
+    const cssVarBlockName = (name: string) => `--${defaultNamespace}-${block}-${name}`;
     return {
         block,
         element,
@@ -48,6 +70,11 @@ export const useNamespace = (blockName: string) => {
         em,
         bm,
         bem,
+        // css
+        cssVar,
+        cssVarName,
+        cssVarBlock,
+        cssVarBlockName,
     };
 };
 const _bem = (

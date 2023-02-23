@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@molix/hooks": "workspace:^1.0.0",
-        "@molix/constants": "workspace:^1.0.0"
-
+        "@molix/constants": "workspace:^1.0.0",
+        "@molix/utils": "workspace:^1.0.0"
     }
 }
