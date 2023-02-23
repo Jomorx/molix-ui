@@ -254,14 +254,20 @@ $rate: map.merge(
     (
         "height": 20px,
         "font-size": getCssVar("font-size-base"),
-        "icon-size": 18px,
-        "icon-margin": 6px,
+        "icon-size": getCssVar("rate-size", "medium"),
+        "icon-margin": getCssVar("rate-margin", "medium"),
         // seems not be used, to be removed
         // 'icon-color': getCssVar('text-color-placeholder),
         "void-color": getCssVar("border-color", "darker"),
         "fill-color": #f7ba2a,
         "disabled-void-color": getCssVar("fill-color"),
         "text-color": getCssVar("text-color", "primary"),
+        "size-small": 16px,
+        "size-medium": 18px,
+        "size-large": 20px,
+        "margin-small": 4px,
+        "margin-medium": 5px,
+        "margin-large": 6px,
     ),
     $rate
 );

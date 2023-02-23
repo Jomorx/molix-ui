@@ -27,11 +27,13 @@ $rateHeight: map-merge(
     height: getCssVar("rate", "height");
     @include e(item) {
         display: inline-block;
+        height: inherit;
         color: getCssVar("rate", "void-color");
+        margin-right: getCssVar("rate", "icon-margin");
         cursor: pointer;
-        margin-right: 3px;
     }
     @include e(icon) {
+        font-size: getCssVar("rate", "icon-size");
         svg {
             transition: getCssVar("transition-duration", "fast");
         }
@@ -40,6 +42,18 @@ $rateHeight: map-merge(
         }
         @include when(active) {
             color: getCssVar("rate", "fill-color");
+        }
+    }
+    @include e(score) {
+        font-size: getCssVar("rate", "font-size");
+    }
+    @include when(disabled) {
+        & {
+            @include e(icon) {
+                &:hover svg {
+                    transform: none;
+                }
+            }
         }
     }
 }

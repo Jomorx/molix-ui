@@ -16,7 +16,7 @@
         "paths": {
             "@molix/*": ["packages/*"]
         },
-        "types": []
+        "types": ["node"]
     },
     "include": [
         "examples/**/*.ts",
