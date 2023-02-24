@@ -72,21 +72,32 @@ importers:
 
   packages/components:
     specifiers:
+      '@molix/constants': workspace:^1.0.0
       '@molix/hooks': workspace:^1.0.0
       '@molix/utils': workspace:^1.0.0
       sass: ^1.58.3
       sass-loader: ^13.2.0
     dependencies:
+      '@molix/constants': link:../constants
       '@molix/hooks': link:../hooks
       '@molix/utils': link:../utils
     devDependencies:
       sass: 1.58.3
       sass-loader: 13.2.0_sass@1.58.3
 
-  packages/hooks:
+  packages/constants:
     specifiers: {}
 
+  packages/hooks:
+    specifiers:
+      '@molix/constants': workspace:^1.0.0
+    dependencies:
+      '@molix/constants': link:../constants
+
   packages/theme:
+    specifiers: {}
+
+  packages/utils:
     specifiers: {}
 
 packages:
@@ -322,7 +333,7 @@ packages:
     dev: true
 
   /@flypeng/tool/5.1.0:
-    resolution: {integrity: sha512-dfedOUE7NdJ6I1cg9iezJQr1LulDs1KXXZhY8EZAAMBYGdZeA2frXKgatl2mOQm8Dam06O3/LF14cm7rhjOgjw==, registry: https://registry.npm.taobao.org/}
+    resolution: {integrity: sha512-dfedOUE7NdJ6I1cg9iezJQr1LulDs1KXXZhY8EZAAMBYGdZeA2frXKgatl2mOQm8Dam06O3/LF14cm7rhjOgjw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npm.taobao.org/@flypeng/tool/-/tool-5.1.0.tgz}
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
@@ -580,7 +591,7 @@ packages:
       vue: 3.2.47
 
   /@vitepress-demo-preview/component/2.1.0_ortxkugafaky3yh6qrvsr4bikm:
-    resolution: {integrity: sha512-5UCFqHuqslnzv228OQc2fzwrg6uogwuKhNlQfz4OBVKAS3iVqB8/1PftfghL1HfV08s7Y96IC/HMOnoEoTtImA==, registry: https://registry.npm.taobao.org/}
+    resolution: {integrity: sha512-5UCFqHuqslnzv228OQc2fzwrg6uogwuKhNlQfz4OBVKAS3iVqB8/1PftfghL1HfV08s7Y96IC/HMOnoEoTtImA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npm.taobao.org/@vitepress-demo-preview/component/-/component-2.1.0.tgz}
     peerDependencies:
       vitepress: '*'
       vue: ^3.2.0
@@ -590,7 +601,7 @@ packages:
     dev: false
 
   /@vitepress-demo-preview/plugin/1.1.7_ortxkugafaky3yh6qrvsr4bikm:
-    resolution: {integrity: sha512-6yqbD4OI5T5S0oYARdM5YoLcmy7Sr5ZRYmR6nT7eWt3TTZArNaB6Or1msGtl0vHshKVjpluNDhRFPReMQm4n1Q==, registry: https://registry.npm.taobao.org/}
+    resolution: {integrity: sha512-6yqbD4OI5T5S0oYARdM5YoLcmy7Sr5ZRYmR6nT7eWt3TTZArNaB6Or1msGtl0vHshKVjpluNDhRFPReMQm4n1Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npm.taobao.org/@vitepress-demo-preview/plugin/-/plugin-1.1.7.tgz}
     peerDependencies:
       vitepress: '*'
       vue: ^3.2.0
@@ -1985,11 +1996,11 @@ packages:
     optional: true
 
   /markdown-it-container/3.0.0:
-    resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==, registry: https://registry.npm.taobao.org/}
+    resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npm.taobao.org/markdown-it-container/-/markdown-it-container-3.0.0.tgz}
     dev: false
 
   /markdown-it/13.0.1:
-    resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==, registry: https://registry.npm.taobao.org/}
+    resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npm.taobao.org/markdown-it/-/markdown-it-13.0.1.tgz}
     hasBin: true
     dependencies:
       argparse: 2.0.1

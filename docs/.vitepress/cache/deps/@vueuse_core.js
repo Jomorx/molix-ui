@@ -28,7 +28,7 @@ import {
   version,
   watch,
   watchEffect
-} from "./chunk-DJZ47UOU.js";
+} from "./chunk-N5TED7FU.js";
 import "./chunk-RSJERJUL.js";
 
 // ../node_modules/.pnpm/registry.npmmirror.com+vue-demi@0.13.11_vue@3.2.47/node_modules/vue-demi/lib/index.mjs

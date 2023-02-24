@@ -1,0 +1,58 @@
+@use "sass:map";
+
+@use "./mixins/config.scss" as *;
+@use "./common/var.scss" as *;
+@use "./mixins/mixins.scss" as *;
+@use "./mixins/function.scss" as *;
+$alert-padding: 8px 16px;
+
+@include b(message) {
+    line-height: 18px;
+    border-radius: 5px;
+    font-size: getCssVar("font-size", "extra-small");
+    max-width: 720px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.3s linear;
+    top: 0px;
+    @each $type, $typeInfo in $types {
+        @include m($type) {
+            background-color: getCssVar(type, $type, bgColor);
+            color: getCssVar(type, $type, color);
+        }
+    }
+    &-fade {
+        &-leave-active {
+            transition: all 0.3s ease;
+        }
+        &-leave-to {
+            opacity: 0;
+        }
+    }
+    //content样式
+    @include e(content) {
+        position: relative;
+        padding: #{$alert-padding};
+        display: flex;
+        flex-direction: column;
+        @include when(center) {
+            align-items: center;
+        }
+        @include e(title) {
+            @include when(bold) {
+                font-weight: 700;
+            }
+        }
+
+        @include e(close-btn) {
+            @include when(closeable) {
+                position: absolute;
+                right: 15px;
+                top: 8px;
+                cursor: pointer;
+                color: inherit;
+            }
+        }
+    }
+}

@@ -1,17 +1,14 @@
 {
-    "name": "@molix/hooks",
+    "name": "@molix/constants",
     "version": "1.0.0",
     "private": "true",
     "description": "",
     "main": "index.ts",
     "module": "index.ts",
-    "types": "index.d.ts",
+    "type":"module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
-    "license": "MIT",
-    "dependencies": {
-        "@molix/constants": "workspace:^1.0.0"
-    }
+    "license": "MIT"
 }
