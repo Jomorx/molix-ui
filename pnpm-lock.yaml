@@ -89,7 +89,10 @@ importers:
     specifiers: {}
 
   packages/hooks:
-    specifiers: {}
+    specifiers:
+      '@molix/constants': workspace:^1.0.0
+    dependencies:
+      '@molix/constants': link:../constants
 
   packages/theme:
     specifiers: {}

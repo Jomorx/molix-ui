@@ -94,13 +94,14 @@ $btnPrefix: #{$namespace}-button;
         }
     }
     .#{$btnPrefix}#{$modifier-separator}#{$type} {
-        color: map-get($typeInfo, "bgColor");
         border: 2px solid map-get($typeInfo, "bgColor");
         &::after,
         &::before {
             @if $type == "default" {
+                color: black;
                 background-color: map-get($typeInfo, "color");
             } @else {
+            color: map-get($typeInfo, "bgColor");
                 background-color: map-get($typeInfo, "bgColor");
             }
         }

@@ -15,3 +15,4 @@ export const EVENT_CODE = {
     home: "Home",
     end: "End",
 };
+export const initZIndex = 2000;
