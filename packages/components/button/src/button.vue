@@ -68,4 +68,5 @@ const waveCls = computed(() => [
 
 <style lang="scss" scoped>
 @import "../../../theme/src/button.scss";
+@import "../../../theme/src/reset.scss";
 </style>

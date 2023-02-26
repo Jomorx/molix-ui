@@ -1,1 +1,1 @@
-import "theme/src/message.scss";
+import "@molix/theme/src/message.scss";

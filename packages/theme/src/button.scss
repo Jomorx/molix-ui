@@ -101,7 +101,7 @@ $btnPrefix: #{$namespace}-button;
                 color: black;
                 background-color: map-get($typeInfo, "color");
             } @else {
-            color: map-get($typeInfo, "bgColor");
+                color: map-get($typeInfo, "bgColor");
                 background-color: map-get($typeInfo, "bgColor");
             }
         }
