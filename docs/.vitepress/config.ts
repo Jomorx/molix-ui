@@ -17,7 +17,12 @@ const sidebar = {
                 { text: "Rate 评分", link: "/components/rate/" },
             ],
         },
-        { text: "导航" },
+        {
+            text: "数据展示 Data",
+            collapsible: true,
+            collapsed: false,
+            items: [{ text: "Card 卡片", link: "/components/card/" }],
+        },
         {
             text: "反馈组件 FeedBack",
             collapsible: true,

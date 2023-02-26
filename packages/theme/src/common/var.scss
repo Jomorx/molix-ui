@@ -271,3 +271,14 @@ $rate: map.merge(
     ),
     $rate
 );
+
+$card: () !default;
+$card: map-merge(
+    (
+        "border-color": getCssVar("border-color", "light"),
+        "border-radius": getCssVar("border-radius", "base"),
+        "padding": 20px,
+        "bg-color": getCssVar("fill-color", "blank"),
+    ),
+    $card
+);

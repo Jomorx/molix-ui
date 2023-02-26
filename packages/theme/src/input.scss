@@ -5,8 +5,7 @@
 @use "common/var.scss" as *;
 @use "mixins/function.scss" as *;
 
-$input-height: 30px;
-$input-width: 30px;
+$input-height: 32px;
 
 $input-radius: (
     "circle": 100%,
@@ -16,17 +15,32 @@ $input-radius: (
 );
 
 @include b(input) {
+    position: relative;
+    font-size: getCssVar("font-size", "base");
+    height: $input-height;
+    display: inline-flex;
+    width: 100%;
+    line-height: getCssVar("input-height");
+    vertical-align: middle;
+    flex-grow: 1;
     input::placeholder {
         color: getCssVar("border-color", "very-dark");
     }
+    @include e(wrapper) {
+        display: inline-flex;
+        height: inherit;
+        flex-grow: 1;
+        padding: 1px 11px;
+        align-items: center;
+        justify-content: center;
+        border-radius: getCssVar("border-radius", "base");
+    }
     @include e(inner) {
-        position: relative;
         width: 100%;
-        height: $input-height;
+        height: inherit;
         flex-grow: 1;
         align-items: center;
         justify-content: center;
-        padding: 1px 11px;
         background-image: none;
         transform: translateZ(0);
         border: 1px solid getCssVar("border-color", "darker");
@@ -37,12 +51,14 @@ $input-radius: (
             border: 1px solid getCssVar("border-color", "very-dark");
         }
         &:focus {
-            border: 1px solid getCssVar("type-primary", "bgColor");
+            border: 1px solid getCssVar("type-primary", "bgColor") !important;
         }
-    }
-
-    @include e(wrapper) {
-        border-radius: getCssVar("border-radius", "base");
+        &:active {
+            border: 1px solid getCssVar("type-primary", "bgColor") !important;
+        }
+        &:focus-visible {
+            outline: none;
+        }
     }
 
     @include e(suffix) {

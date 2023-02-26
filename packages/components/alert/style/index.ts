@@ -1,1 +1,2 @@
-import "theme/src/alert.scss";
+// import "theme/src/alert.scss";
+export {};
