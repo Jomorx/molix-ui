@@ -25,6 +25,7 @@ $rateHeight: map-merge(
     display: inline-flex;
     align-items: center;
     height: getCssVar("rate", "height");
+    line-height: getCssVar("rate", "height");
     @include e(item) {
         display: inline-block;
         height: inherit;

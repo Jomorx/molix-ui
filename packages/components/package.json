@@ -7,16 +7,17 @@
     "module": "index.ts",
     "type": "module",
     "peerDependencies": {
-        "vue": "^3.2.0",
-        "@vueuse/core": "^9.13.0"
+        "@vueuse/core": "^9.13.0",
+        "vue": "^3.2.0"
     },
     "devDependencies": {
         "sass": "^1.58.3",
         "sass-loader": "^13.2.0"
     },
     "dependencies": {
-        "@molix/hooks": "workspace:^1.0.0",
         "@molix/constants": "workspace:^1.0.0",
+        "@molix/hooks": "workspace:^1.0.0",
+        "@molix/theme": "workspace:^1.0.0",
         "@molix/utils": "workspace:^1.0.0"
     }
 }

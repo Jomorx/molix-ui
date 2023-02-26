@@ -17,7 +17,6 @@
             "@molix/*": ["packages/*"],
             "components/*":["packages/components/*"],
             "theme/*":["packages/theme/*"]
-
         },
         "types": ["node"]
     },
