@@ -1,6 +1,6 @@
 <template>
     <MlRate :max="10" v-model="rate" show-score></MlRate>
-    <MlInput v-model="input" placeholder="输入一下罢"></MlInput>
+    <MlInput placeholder="输入一下罢"></MlInput>
     <ElInput></ElInput>
     <MlButton @click="handleInfoClick" round fall size="small">啊啊</MlButton>
     <MlAlert>asdasdasd</MlAlert>
@@ -20,6 +20,6 @@ const handleInfoClick = () => {
 
 <style scoped>
 .ml-input {
-    margin: 10px;
+    margin: 10px 0px;
 }
 </style>
