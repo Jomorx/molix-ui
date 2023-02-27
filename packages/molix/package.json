@@ -1,0 +1,20 @@
+{
+  "name": "molix",
+  "version": "1.0.0",
+  "description": "A Component Library for Vue 3",
+  "main": "index.js",
+  "keywords": [
+    "molix",
+    "molix-ui",
+    "component library",
+    "ui framework",
+    "ui",
+    "vue"
+  ],
+  "homepage": "https://github.com/molix-ui/Molix",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
