@@ -14,7 +14,7 @@ interface IButtonProps {
 }
 
 export default {
-    name: "ml-button",
+    name: "MlButton",
 };
 </script>
 
