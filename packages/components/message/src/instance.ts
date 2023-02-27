@@ -10,6 +10,7 @@ export type MessageContext = {
     props: IMessageProps;
 };
 export const instances: MessageContext[] = shallowReactive([]);
+//拿到当前和原来的instance
 export const getInstance = (id: string) => {
     const idx = instances.findIndex((instance) => instance.id === id);
     const current = instances[idx];
@@ -19,15 +20,15 @@ export const getInstance = (id: string) => {
     }
     return { current, prev };
 };
-
+// 获取上一个的高度
 export const getLastOffset = (id: string): number => {
     const { prev } = getInstance(id);
     if (!prev) return 0;
-    console.log(prev.vm.exposed!.bottom.value);
     return prev.vm.exposed!.bottom.value;
 };
-
+// 拿到当前的id
 export const getOffsetOrSpace = (id: string, offset: number) => {
     const idx = instances.findIndex((instance) => instance.id === id);
     return idx > 0 ? 20 : offset;
 };
+export const messageTypes = ["primary", "error", "info", "success", "warning", "default"] as const;
