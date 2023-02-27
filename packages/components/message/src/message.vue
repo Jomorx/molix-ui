@@ -114,12 +114,8 @@ defineExpose({
                 <p v-if="!dangerouslyUseHTMLString" :class="ns.element('content')">
                     {{ message }}
                 </p>
-                <!-- Caution here, message could've been compromised, never use user's input as message -->
                 <p v-else :class="ns.element('content')" v-html="message" />
             </slot>
-            <!-- <el-icon v-if="showClose" :class="ns.element('closeBtn')" @click.stop="close">
-                <Close />
-            </el-icon> -->
         </div>
     </transition>
 </template>
