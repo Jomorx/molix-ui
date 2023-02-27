@@ -57,7 +57,6 @@ const ns = useNamespace("message");
 //关闭visible
 const close = () => {
     visible.value = false;
-    console.log(props.onClose);
 };
 const keydownListener = (e: KeyboardEvent) => {
     if (e.code === EVENT_CODE.esc) {

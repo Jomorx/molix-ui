@@ -48,4 +48,6 @@ export interface Message extends MessageFn {
     warning: MessageTypedFn;
     info: MessageTypedFn;
     error: MessageTypedFn;
+    primary: MessageTypedFn;
+    default: MessageTypedFn;
 }

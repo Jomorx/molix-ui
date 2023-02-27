@@ -19,10 +19,13 @@
         })
     }
     const handleInfoClick = ()=>{
-        MlMessage({
+        const close = MlMessage.info({
             message: 'this is a message.',
-            type: 'info',
+            showClose:true
         })
+    }
+    const closeAll = ()=>{
+        MlMessage.closeAll("success")
     }
 </script>
 
@@ -30,3 +33,5 @@
 <ml-button @click="handleSuccessClick" type="success" round>success</ml-button>
 <ml-button @click="handlePrimaryClick" type="primary" round>primary</ml-button>
 <ml-button @click="handleInfoClick" type="info" fall round>info</ml-button>
+<ml-button @click="closeAll" type="info" fall round>closeAll</ml-button>
+
