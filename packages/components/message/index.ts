@@ -1,5 +1,4 @@
 import Message from "./src/method";
-import { App } from "vue";
 import "./style";
 import { withInstallFunction } from "@molix/utils/install";
 export { Message, MlMessage };

@@ -89,7 +89,7 @@ const inputExceed = computed(
 );
 
 const focused = ref(false);
-const hovering = ref(false);
+// const hovering = ref(false);
 const pwdVisible = ref(false);
 
 // 展示一键清除

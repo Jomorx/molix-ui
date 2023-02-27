@@ -1,5 +1,4 @@
 import Button from "./src/button.vue";
-import { App } from "vue";
 import { withInstallFunction } from "@molix/utils/install";
 export { Button, MlButton };
 // export default {

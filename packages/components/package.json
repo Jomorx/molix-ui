@@ -6,18 +6,14 @@
     "main": "index.ts",
     "module": "index.ts",
     "type": "module",
+    "scripts": {
+        "build": "vite build"
+    },
     "peerDependencies": {
         "@vueuse/core": "^9.13.0",
         "vue": "^3.2.0"
     },
-    "devDependencies": {
-        "sass": "^1.58.3",
-        "sass-loader": "^13.2.0"
-    },
     "dependencies": {
-        "@molix/constants": "workspace:^1.0.0",
-        "@molix/hooks": "workspace:^1.0.0",
-        "@molix/theme": "workspace:^1.0.0",
-        "@molix/utils": "workspace:^1.0.0"
+        "vite": "^4.1.4"
     }
 }
