@@ -11,7 +11,7 @@ interface IAlertProps {
     closeText?: string;
 }
 export default {
-    name: "ml-alert",
+    name: "MlAlert",
 };
 </script>
 
@@ -86,3 +86,7 @@ const closeBtnCls = computed(() => [
         </div>
     </Transition>
 </template>
+<style lang="scss" scoped>
+@import "../../../theme/src/alert.scss";
+@import "../../../theme/src/reset.scss";
+</style>

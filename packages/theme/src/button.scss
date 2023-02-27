@@ -22,6 +22,7 @@ $btnPrefix: #{$namespace}-button;
 
 // 基础样式
 .#{$btnPrefix}#{$element-separator}wrapper {
+    cursor: pointer;
     border-radius: inherit;
     position: relative;
     z-index: 1;
