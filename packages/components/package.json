@@ -7,7 +7,8 @@
     "module": "index.ts",
     "type": "module",
     "scripts": {
-        "build": "vite build"
+        "build": "vite build",
+        "test": "vitest"
     },
     "peerDependencies": {
         "@vueuse/core": "^9.13.0",

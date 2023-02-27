@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "pnpm -C play dev",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "vitest",
         "docs": "pnpm --filter @molix/docs docs",
         "prepare": "husky install",
         "commit": "git add . && git-cz",
@@ -16,7 +16,6 @@
         "typecheck:play": "vue-tsc -p tsconfig.play.json --composite false --noEmit",
         "typecheck:vitest": "vue-tsc -p tsconfig.vitest.json --composite false --noEmit",
         "check": "pnpm run typecheck:web && pnpm run typecheck:play && pnpm run typecheck:vitest && pnpm run typecheck:web"
-
     },
     "dependencies": {
         "@molix/components": "workspace:^0.0.1",
@@ -30,9 +29,11 @@
         "@types/sass": "^1.43.1",
         "@vitejs/plugin-vue": "^4.0.0",
         "@vitejs/plugin-vue-jsx": "^3.0.0",
+        "@vue/test-utils": "^2.3.0",
         "@vueuse/core": "^9.13.0",
         "jsdom": "^21.1.0",
         "lodash": "^4.17.21",
+        "resize-observer-polyfill": "^1.5.1",
         "sass": "^1.58.3",
         "unplugin-vue-macros": "^1.9.1",
         "vitest": "^0.29.1",
