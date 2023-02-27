@@ -4,7 +4,7 @@
             v-for="(item, key) in max"
             :key="key"
             :class="itemCls"
-            @mousemove="setValue(item, $event)"
+            @mousemove="setCurrentValue(item, $event)"
             @click="confirmValue"
             ><i :class="[nsRate.element('icon'), nsRate.is('active', isActive(item))]"
                 ><svg class="icon" aria-hidden="true">
@@ -20,8 +20,7 @@
 <script setup lang="ts">
 import { useNamespace } from "@molix/hooks";
 import { computed, onMounted, ref, watch } from "vue";
-import { hasClass, debugWarn, getCssVarName } from "@molix/utils";
-import { useCssVar } from "@vueuse/core";
+import { hasClass, debugWarn } from "@molix/utils";
 import { isInteger } from "lodash";
 
 const props = withDefaults(defineProps<IRateProps>(), {
@@ -40,7 +39,11 @@ const emit = defineEmits<IInputEmits>();
 const nsRate = useNamespace("rate");
 const rateRef = ref();
 
-const containerCls = computed(() => [nsRate.block(), nsRate.is("disabled", props.readonly)]);
+const containerCls = computed(() => [
+    nsRate.block(),
+    nsRate.is("disabled", props.readonly),
+    nsRate.modifier(props.size),
+]);
 const itemCls = computed(() => [nsRate.element("item")]);
 // const iconCls = computed(() => [nsRate.element("icon")]);
 
@@ -72,7 +75,7 @@ const scoreTemp = computed(() => () => {
     return temp.replace("{value}", `${Math.floor(props.modelValue * 2) / 2}`);
 });
 // 设置值
-const setValue = (item: number, e: MouseEvent) => {
+const setCurrentValue = (item: number, e: MouseEvent) => {
     // 若只读则直接返回
     if (props.readonly) return;
     if (props.allowHalf) {
@@ -110,7 +113,7 @@ const clearValue = () => {
 };
 // 确认值
 
-const confirmValue = (payload: MouseEvent | null, access?: boolean) => {
+const confirmValue = (payload?: MouseEvent | null, access?: boolean) => {
     if (props.readonly && !access) return;
     if (props.clearable) {
         // 新旧值相等意味着清空，否则旧值设置为当前值
@@ -136,14 +139,15 @@ const validateModelValue = () => {
     }
 };
 // 设置组件尺寸
-const setSize = () => {
-    const marginVar = getCssVarName(nsRate.cssVarName(`rate-margin-${props.size}`));
-    const sizeVar = getCssVarName(nsRate.cssVarName(`rate-size-${props.size}`));
-    const marginCss = useCssVar(nsRate.cssVarName("rate-icon-margin"), rateRef);
-    const sizeCss = useCssVar(nsRate.cssVarName("rate-icon-size"), rateRef);
-    marginCss.value = marginVar;
-    sizeCss.value = sizeVar;
-};
+// const setSize = () => {
+//     const marginVar = getCssVarName(nsRate.cssVarName(`rate-margin-${props.size}`));
+//     const sizeVar = getCssVarName(nsRate.cssVarName(`rate-size-${props.size}`));
+//     const marginCss = useCssVar(nsRate.cssVarName("rate-icon-margin"), rateRef);
+//     const sizeCss = useCssVar(nsRate.cssVarName("rate-icon-size"), rateRef);
+//     marginCss.value = marginVar;
+//     sizeCss.value = sizeVar;
+// };
+
 watch(
     () => props.modelValue,
     (val) => {
@@ -160,10 +164,9 @@ onMounted(() => {
     currentValue.value = props.modelValue;
     oldValue.value = props.modelValue;
     validateModelValue();
-    setSize();
 });
 
-defineExpose({ resetValue });
+defineExpose({ resetValue, setCurrentValue, confirmValue });
 </script>
 
 <script lang="ts">
