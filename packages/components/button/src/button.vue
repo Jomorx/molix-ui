@@ -7,10 +7,11 @@ interface IButtonEmits {
 interface IButtonProps {
     //按钮类型
     type?: "primary" | "error" | "info" | "success" | "text" | "default";
-    disabled?: true | false;
-    round?: true | false;
-    fall?: true | false;
+    disabled?: boolean;
+    round?: boolean;
+    fall?: boolean;
     size?: "large" | "medium" | "small";
+    nativeType?: "button" | "submit" | "reset";
 }
 
 export default {
@@ -27,6 +28,7 @@ const props = withDefaults(defineProps<IButtonProps>(), {
     round: false,
     fall: false,
     size: "medium",
+    nativeType: "button",
 });
 
 const emit = defineEmits<IButtonEmits>();
@@ -58,7 +60,7 @@ const waveCls = computed(() => [
 </script>
 
 <template>
-    <button @click="handleClick" :class="btnCls" :disabled="disabled">
+    <button @click="handleClick" :class="btnCls" :type="nativeType" :disabled="disabled">
         <div :class="wrapperCls">
             <slot />
         </div>
