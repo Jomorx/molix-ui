@@ -1,9 +1,5 @@
 import Card from "./src/card.vue";
 import { withInstallFunction } from "@molix/utils/install";
-export { Card, MlCard };
-// export default {
-//     install(app: App) {
-//         app.component(Card.name, Card);
-//     },
-// };
+export { MlCard };
+
 const MlCard = withInstallFunction(Card, "$card");
