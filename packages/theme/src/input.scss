@@ -21,6 +21,7 @@ $input-radius: (
     display: inline-flex;
     width: 100%;
     line-height: getCssVar("input-height");
+    box-sizing: border-box;
     vertical-align: middle;
     flex-grow: 1;
     input::placeholder {
@@ -30,7 +31,6 @@ $input-radius: (
         display: inline-flex;
         height: inherit;
         flex-grow: 1;
-        padding: 1px 11px;
         align-items: center;
         justify-content: center;
         border-radius: getCssVar("border-radius", "base");
@@ -41,6 +41,7 @@ $input-radius: (
         flex-grow: 1;
         align-items: center;
         justify-content: center;
+        padding: 1px 11px;
         background-image: none;
         transform: translateZ(0);
         border: 1px solid getCssVar("border-color", "darker");
