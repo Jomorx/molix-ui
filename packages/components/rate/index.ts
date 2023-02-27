@@ -1,5 +1,4 @@
 import Rate from "./src/rate.vue";
-import { App } from "vue";
 import { withInstallFunction } from "@molix/utils/install";
 export { Rate, MlRate };
 // export default {

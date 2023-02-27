@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { MlMessage } from "@molix/components";
-const input = ref("");
 const rate = ref(0);
 const handleInfoClick = () => {
     MlMessage({

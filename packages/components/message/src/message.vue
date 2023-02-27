@@ -27,7 +27,7 @@ export interface IMessageEmits {
 }
 </script>
 <script setup lang="ts">
-const emits = defineEmits<IMessageEmits>();
+defineEmits<IMessageEmits>();
 const props = withDefaults(defineProps<IMessageProps>(), {
     type: "info",
     center: false,

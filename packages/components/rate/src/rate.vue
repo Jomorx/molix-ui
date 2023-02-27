@@ -19,10 +19,11 @@
 
 <script setup lang="ts">
 import { useNamespace } from "@molix/hooks";
-import { computed, onBeforeMount, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { hasClass, debugWarn, getCssVarName } from "@molix/utils";
 import { useCssVar } from "@vueuse/core";
 import { isInteger } from "lodash";
+
 const props = withDefaults(defineProps<IRateProps>(), {
     unWarn: false,
     modelValue: 0,
@@ -41,7 +42,7 @@ const rateRef = ref();
 
 const containerCls = computed(() => [nsRate.block(), nsRate.is("disabled", props.readonly)]);
 const itemCls = computed(() => [nsRate.element("item")]);
-const iconCls = computed(() => [nsRate.element("icon")]);
+// const iconCls = computed(() => [nsRate.element("icon")]);
 
 // 当前选中的star的index
 const currentValue = ref<number>(0);

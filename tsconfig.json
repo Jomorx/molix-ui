@@ -1,35 +1,8 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "useDefineForClassFields": true,
-        "module": "ESNext",
-        "moduleResolution": "Node",
-        "strict": true,
-        "jsx": "preserve",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "esModuleInterop": true,
-        "lib": ["ESNext", "DOM"],
-        "skipLibCheck": true,
-        "noEmit": true,
-        "baseUrl": "./",
-        "paths": {
-            "@molix/*": ["packages/*"],
-            "components/*":["packages/components/*"],
-            "theme/*":["packages/theme/*"]
-        },
-        "types": ["node"]
-    },
-    "include": [
-        "examples/**/*.ts",
-        "examples/**/*.tsx",
-        "examples/**/*.vue",
-        "packages/**/*",
-        "packages/**/**/**/*.vue",
-        "typings/**/*.ts",
-        "tests/**/*.ts",
-        "tests/**/*.tsx",
-        "packages/**/**/**/_test_/*.spec.ts",
-        "packages/components/button/style/index.scss"
+    "files": [],
+    "references": [
+      { "path": "./tsconfig.web.json" }, // 组件包部分
+      { "path": "./tsconfig.play.json" }, // 组件 play 部分
+      { "path": "./tsconfig.vitest.json" } // 组件测试部分
     ]
-}
+  }

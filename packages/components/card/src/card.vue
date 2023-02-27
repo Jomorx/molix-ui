@@ -4,10 +4,10 @@
 
 <script setup lang="ts">
 import { useNamespace } from "@molix/hooks";
-import { computed, onBeforeMount, onMounted, ref, watch, StyleValue, CSSProperties } from "vue";
+import { ref, StyleValue } from "vue";
 import { ShadowTiming } from "./card";
 
-const props = withDefaults(defineProps<ICardProps>(), {
+withDefaults(defineProps<ICardProps>(), {
     header: "Card Title",
     bodyStyle: "",
     shadow: ShadowTiming.always,
