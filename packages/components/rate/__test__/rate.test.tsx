@@ -3,7 +3,7 @@ import { mount } from "@vue/test-utils";
 import Rate from "../src/rate.vue";
 
 import { useNamespace } from "@molix/hooks";
-import { ref } from "vue";
+import { nextTick, ref } from "vue";
 const nsRate = useNamespace("rate");
 
 describe("Rate.vue", () => {
@@ -79,7 +79,7 @@ describe("Rate.vue", () => {
     });
 
     // show-score
-    it("show-score", () => {
+    it("show-score", async () => {
         const value = ref(0);
         const wrapper = mount(() => <Rate v-model={value.value} show-score></Rate>);
         // 存在分数展示
@@ -92,7 +92,8 @@ describe("Rate.vue", () => {
         } as unknown as MouseEvent);
         firstStar.click();
         expect(value.value).toBe(1);
-        // expect(wrapper.find(`.${nsRate.element("score")}`).text()).toBe("1 星");
+        await nextTick();
+        expect(wrapper.find(`.${nsRate.element("score")}`).text()).toBe("1 星");
     });
 
     // readonly
