@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, ref, watch } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 
 import { useNamespace, useAttrs } from "@molix/hooks";
 
@@ -111,10 +111,13 @@ const suffixVisible = computed(() => showClear.value || props.showPassword || pr
 
 watch(nativeInputValue, () => setNativeInputValue);
 
-const handleInput = (event: Event) => {
+const handleInput = async (event: Event) => {
     let { value } = event.target as TargetElement;
     emit("update:modelValue", value);
     emit("input", value);
+    await nextTick();
+    // 等待 DOM 更新后设置 input 表单的值
+    setNativeInputValue();
 };
 
 const handleChange = (event: Event) => {
@@ -135,6 +138,7 @@ const handlePwdVisible = () => {
     focus();
 };
 const setNativeInputValue = () => {
+    console.log(555);
     const input = InputRef.value;
     if (!input || input.value === nativeInputValue.value) return;
     input.value = nativeInputValue.value;
@@ -157,6 +161,10 @@ const clear = () => {
     focus();
 };
 
+onMounted(() => {
+    // 初始化值
+    setNativeInputValue();
+});
 defineExpose({ input: InputRef, clear, blur, select });
 </script>
 
