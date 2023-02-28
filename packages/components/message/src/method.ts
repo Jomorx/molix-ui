@@ -9,8 +9,8 @@ import {
     IMessageType,
 } from "./message";
 import { debugWarn, isElement, isFunction, isNumber, isString, isVNode } from "@molix/utils";
-import { instances, MessageContext } from "./instance";
-import { AppContext, createVNode, render } from "vue";
+import { instances, MessageContext, messageTypes } from "./instance";
+import { AppContext, createElementVNode, createVNode, render } from "vue";
 import { useZIndex } from "@molix/hooks";
 import MessageConstructor from "./message.vue";
 
@@ -32,11 +32,10 @@ const normalizeOptions = (params?: MessageParams) => {
     } else if (isString(normalized.appendTo)) {
         let appendTo = document.querySelector<HTMLElement>(normalized.appendTo);
 
-        // should fallback to default value with a warning
         if (!isElement(appendTo)) {
             debugWarn(
-                "ElMessage",
-                "the appendTo option is not an HTMLElement. Falling back to document.body."
+                "MlMessage",
+                "appendTo 需要传入一个HTMLElement,如果传入的不是HTMLElement,默认appendTo body"
             );
             appendTo = document.body;
         }
@@ -69,39 +68,35 @@ const createMessage = (
         ...options,
         zIndex: nextZIndex() + options.zIndex!,
         id,
+        //将用户自定义删除的事件以及删除事件一起执行
         onClose: () => {
             userOnClose?.();
             closeMessage(instance);
         },
-
-        // clean message element preventing mem leak
         onDestroy: () => {
-            // since the element is destroy, then the VNode should be collected by GC as well
-            // we do not want cause any mem leak because we have returned vm as a reference to users
-            // so that we manually set it to false.
             render(null, container);
         },
     };
     const vnode = createVNode(
         MessageConstructor,
         props,
+        //判断是Function还是vNode 并给出对应处理
         isFunction(props.message) || isVNode(props.message)
             ? {
                   default: isFunction(props.message) ? props.message : () => props.message,
               }
             : null
     );
+    //绑定对应的组件上下文
     vnode.appContext = context || message._context;
-
+    // 渲染组件到div上
     render(vnode, container);
-    // instances will remove this item when close function gets called. So we do not need to worry about it.
+    // 将渲染好的组件渲染到body上面
     appendTo.appendChild(container.firstElementChild!);
-
+    //拿到组件实例
     const vm = vnode.component!;
 
     const handler: MessageHandler = {
-        // instead of calling the onClose function directly, setting this value so that we can have the full lifecycle
-        // for out component, so that all closing steps will not be skipped.
         close: () => {
             vm.exposed!.visible.value = false;
         },
@@ -111,6 +106,7 @@ const createMessage = (
         id,
         vnode,
         vm,
+        //{onClose:()=>void}
         handler,
         props: (vnode.component as any).props,
     };
@@ -122,30 +118,19 @@ const message: MessageFn & Partial<Message> & { _context: AppContext | null } = 
     options = {},
     context
 ) => {
-    // if (!isClient) return { close: () => undefined };
-
+    //检查max是不是数字 并且 当前的message数量大于max
     if (isNumber(messageConfig.max) && instances.length >= messageConfig.max) {
         return { close: () => undefined };
     }
-
+    //初始化对应的props
     const normalized = normalizeOptions(options);
-
-    // if (normalized.grouping && instances.length) {
-    //     const instance = instances.find(
-    //         ({ vnode: vm }) => vm.props?.message === normalized.message
-    //     );
-    //     if (instance) {
-    //         instance.props.repeatNum += 1;
-    //         instance.props.type = normalized.type;
-    //         return instance.handler;
-    //     }
-    // }
-
+    // 创建组件实例
     const instance = createMessage(normalized, context);
-
+    // 将创建好的组件实例加入到数组中
     instances.push(instance);
     return instance.handler;
 };
+//把数组中中的所有的实例
 export function closeAll(type?: IMessageType): void {
     for (const instance of instances) {
         if (!type || type === instance.props.type) {
@@ -153,6 +138,12 @@ export function closeAll(type?: IMessageType): void {
         }
     }
 }
+messageTypes.forEach((type) => {
+    message[type] = (options = {}, appContext) => {
+        const normalized = normalizeOptions(options);
+        return message({ ...normalized, type }, appContext);
+    };
+});
 message.closeAll = closeAll;
 
 message._context = null;

@@ -6,14 +6,21 @@
     <MlAlert>asdasdasd</MlAlert>
 </template>
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, getCurrentInstance } from "vue";
 import { MlMessage } from "@molix/components";
+import { ElMessage } from "element-plus";
 const rate = ref(0);
+const { appContext } = getCurrentInstance()!;
 const handleInfoClick = () => {
-    MlMessage({
-        message: "this is a message.",
-        type: "info",
-    });
+    MlMessage.success(
+        {
+            message: "{{rate}}",
+        },
+        appContext
+    );
+    // ElMessage.success({
+    //     message: "{{rate}}",
+    // });
 };
 </script>
 
