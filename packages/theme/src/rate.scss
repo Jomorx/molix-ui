@@ -16,6 +16,9 @@ $rateHeight: map-merge(
     $rateHeight
 );
 
+$rate-size: () !default;
+$rate-size: ("large", "medium", "small");
+
 // 设置rate的组件css变量
 @include b(rate) {
     @include set-component-css-var("rate", $rate);
@@ -55,6 +58,15 @@ $rateHeight: map-merge(
                     transform: none;
                 }
             }
+        }
+    }
+    @each $size in $rate-size {
+        @include m($size) {
+            @include set-css-var-value(
+                ("rate", "icon", "margin"),
+                getCssVar("rate", "margin", $size)
+            );
+            @include set-css-var-value(("rate", "icon", "size"), getCssVar("rate", "size", $size));
         }
     }
 }
