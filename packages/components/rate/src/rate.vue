@@ -22,7 +22,7 @@ import { useNamespace } from "@molix/hooks";
 import { computed, onMounted, ref, watch } from "vue";
 import { hasClass, debugWarn, getCssVarName } from "@molix/utils";
 import { useCssVar } from "@vueuse/core";
-import { isInteger } from "lodash";
+import { isInteger } from "lodash-es";
 
 const props = withDefaults(defineProps<IRateProps>(), {
     unWarn: false,

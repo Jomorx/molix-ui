@@ -49,7 +49,7 @@ import { computed, nextTick, ref, watch } from "vue";
 
 import { useNamespace, useAttrs } from "@molix/hooks";
 
-import { isNil } from "lodash";
+import { isNil } from "lodash-es";
 
 import type { TargetElement } from "./input";
 
