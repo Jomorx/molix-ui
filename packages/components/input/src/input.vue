@@ -138,7 +138,6 @@ const handlePwdVisible = () => {
     focus();
 };
 const setNativeInputValue = () => {
-    console.log(555);
     const input = InputRef.value;
     if (!input || input.value === nativeInputValue.value) return;
     input.value = nativeInputValue.value;
