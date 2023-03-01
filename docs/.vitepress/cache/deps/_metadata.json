@@ -1,29 +1,35 @@
 {
-  "hash": "5c3eb2c1",
-  "browserHash": "e5588bb2",
+  "hash": "f76019e7",
+  "browserHash": "5eb3fe28",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "8f117542",
+      "fileHash": "d96aa282",
       "needsInterop": false
     },
     "@vitepress-demo-preview/component": {
-      "src": "../../../../node_modules/.pnpm/@vitepress-demo-preview+component@2.1.0_ortxkugafaky3yh6qrvsr4bikm/node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
+      "src": "../../../../node_modules/.pnpm/@vitepress-demo-preview+component@2.1.0_swexselz56x4db7bjlou2nhtvm/node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
       "file": "@vitepress-demo-preview_component.js",
-      "fileHash": "3b028304",
+      "fileHash": "ac7e0832",
+      "needsInterop": false
+    },
+    "lodash-es": {
+      "src": "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/lodash.js",
+      "file": "lodash-es.js",
+      "fileHash": "b774c5a4",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0_vue@3.2.47/node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "ec35fb53",
+      "fileHash": "564a88ac",
       "needsInterop": false
     },
     "lodash": {
       "src": "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js",
       "file": "lodash.js",
-      "fileHash": "e675333b",
+      "fileHash": "a331591c",
       "needsInterop": true
     }
   },

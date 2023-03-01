@@ -5,16 +5,17 @@
     "main": "index.js",
     "scripts": {
         "docs": "vitepress dev   --config ./vite.config.ts",
-        "docs:build": "vitepress build docs",
+        "docs:build": "vitepress build   --config ./vite.config.ts",
         "docs:preview": "vitepress preview docs",
-        "register:components": "vitepress-rc"
+        "register:components": "vitepress-rc",
+        "docs:serve": "vitepress serve   --config ./vite.config.ts"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "vite": "^4.1.2",
-        "vitepress": "1.0.0-alpha.45",
+        "vitepress": "1.0.0-alpha.47",
         "vue": "^3.2.47"
     },
     "dependencies": {

@@ -1,7 +1,7 @@
-import { isArray, isObject, isString } from "lodash";
-import { isNil } from "lodash";
+import { isArray, isObject, isString } from "lodash-es";
+import { isNil } from "lodash-es";
 
-export { isArray, isFunction, isObject, isString, isDate, isSymbol } from "lodash";
+export { isArray, isFunction, isObject, isString, isDate, isSymbol } from "lodash-es";
 export { isBoolean, isNumber } from "@vueuse/core";
 export { isVNode } from "vue";
 

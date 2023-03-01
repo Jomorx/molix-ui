@@ -7,6 +7,7 @@
         "dev": "pnpm -C play dev",
         "test": "vitest",
         "docs": "pnpm --filter @molix/docs docs",
+        "docs:build": "pnpm --filter @molix/docs docs:build",
         "prepare": "husky install",
         "commit": "git add . && git-cz",
         "build": "vue-tsc && vite build",
@@ -33,6 +34,7 @@
         "@vueuse/core": "^9.13.0",
         "jsdom": "^21.1.0",
         "lodash": "^4.17.21",
+        "lodash-es": "^4.17.21",
         "resize-observer-polyfill": "^1.5.1",
         "sass": "^1.58.3",
         "unplugin-vue-macros": "^1.9.1",
@@ -40,6 +42,7 @@
         "vue": "^3.2.45"
     },
     "devDependencies": {
+        "@types/lodash-es": "^4.17.6",
         "@typescript-eslint/eslint-plugin": "^5.51.0",
         "@typescript-eslint/parser": "^5.51.0",
         "commitizen": "^4.3.0",

@@ -1,4 +1,4 @@
-import { isString } from "lodash";
+import { isString } from "lodash-es";
 export class MolixError extends Error {
     constructor(m: string) {
         super(m);

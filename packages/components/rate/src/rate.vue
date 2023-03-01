@@ -21,7 +21,7 @@
 import { useNamespace } from "@molix/hooks";
 import { computed, onMounted, ref, watch } from "vue";
 import { hasClass, debugWarn } from "@molix/utils";
-import { isInteger } from "lodash";
+import { isInteger } from "lodash-es";
 
 const props = withDefaults(defineProps<IRateProps>(), {
     unWarn: false,
