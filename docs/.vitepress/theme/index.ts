@@ -10,8 +10,6 @@ import "@vitepress-demo-preview/component/dist/style.css";
 export default {
     ...theme,
     enhanceApp({ app }) {
-        console.log(MolixUi);
-
         app.use(MolixUi);
         app.component("demo-preview", AntDesignContainer);
     },

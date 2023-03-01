@@ -3,7 +3,7 @@ import { ref } from "vue";
 const input1 = ref("");
 const input2 = ref("");
 const input3 = ref("");
-const input4 = ref("456");
+const input4 = ref("");
 </script>
 
 # Input 输入框
