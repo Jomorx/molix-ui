@@ -15,7 +15,7 @@
         "esModuleInterop": true, // 是否通过为所有导入模块创建命名空间对象，允许CommonJS和ES模块之间的互操作性，开启改选项时，也自动开启allowSyntheticDefaultImports选项，默认：false
         "removeComments": false, // 删除注释
         "rootDir": ".", // 指定输出文件目录(用于输出)，用于控制输出目录结构
-        "types": [],
+        "types": ["typings/env.d.ts"],
         "paths": {
             // 路径映射，相对于baseUrl
             "@molix/*": ["packages/*"]

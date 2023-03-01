@@ -1,7 +1,7 @@
 import Input from "../src/input.vue";
 import { mount } from "@vue/test-utils";
 import { describe, test, expect, vi } from "vitest";
-import { nextTick, ref, watch } from "vue";
+import { ref } from "vue";
 import { useNamespace } from "@molix/hooks";
 
 const nsInput = useNamespace("input");

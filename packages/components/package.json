@@ -6,6 +6,7 @@
     "main": "index.ts",
     "module": "index.ts",
     "type": "module",
+    "types": "index.d.ts",
     "scripts": {
         "build": "vite build",
         "test": "vitest"

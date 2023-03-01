@@ -21,6 +21,7 @@
     "dependencies": {
         "@molix/components": "workspace:^0.0.1",
         "@vitepress-demo-preview/component": "^2.1.0",
-        "@vitepress-demo-preview/plugin": "^1.1.7"
+        "@vitepress-demo-preview/plugin": "^1.1.7",
+        "molix": "workspace:^1.0.0"
     }
 }
